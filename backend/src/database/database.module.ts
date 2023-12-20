@@ -6,11 +6,11 @@ import { DataSourceOptions } from 'typeorm';
 
 export const dataSourceOptions: DataSourceOptions = {
   type: 'postgres',
-  host: 'localhost',
+  host: 'db',
   port: 5432,
   username: 'postgres',
   password: 'felipe1303',
-  database: 'taskmanager',
+  database: 'postgres',
   entities: [Tasks, TimeSpent],
   synchronize: false,
 };
