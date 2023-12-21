@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { randomUUID } from 'crypto';
 import { TimeSpent } from 'src/time-spent/entities/timeSpent.entity';
 import {
@@ -42,4 +43,12 @@ export class Tasks {
     }
     this.id = randomUUID();
   }
+}
+
+export class TaskLog {
+  @ApiProperty()
+  day: string;
+
+  @ApiProperty()
+  total_concluded: number;
 }

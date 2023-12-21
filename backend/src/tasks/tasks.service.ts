@@ -5,6 +5,11 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CreateTaskDTO } from './dto/create-task.dto';
 import { UpdateTaskDTO } from './dto/update-task.dto';
 
+type TaskLog = {
+  dia: string;
+  total: number;
+};
+
 @Injectable()
 export class TasksService {
   constructor(
@@ -16,17 +21,16 @@ export class TasksService {
     return this.taskRepository.find();
   }
 
-  async log() {
+  async taskLog(): Promise<TaskLog[]> {
     const queryBuilder = this.taskRepository
       .createQueryBuilder('task')
       .select([
-        "DATE_TRUNC('day', task.concludedAt) as dia",
-        'COUNT(*) as total',
+        "DATE_TRUNC('day', task.concludedAt) as day",
+        'COUNT(*) as total_hours',
       ])
       .where('task.concluded = :concluded', { concluded: true })
-      .groupBy('dia')
-      .orderBy('dia', 'ASC');
-    console.log(queryBuilder.getSql());
+      .groupBy('day')
+      .orderBy('day', 'ASC');
     return queryBuilder.getRawMany();
   }
 

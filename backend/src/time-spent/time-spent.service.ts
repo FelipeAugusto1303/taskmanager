@@ -30,14 +30,10 @@ export class TimeSpentService {
   async findHours(id: string) {
     const queryBuilder = this.timeSpentRepository
       .createQueryBuilder('timeSpent')
-      .select([
-        'timeSpent.spentAt',
-        'task.title',
-        'SUM(timeSpent.timeSpent) as totalHours',
-      ])
+      .select(['timeSpent.spentAt', 'SUM(timeSpent.timeSpent) as hours'])
       .leftJoin(Tasks, 'task', 'timeSpent.taskId = task.id')
       .where('task.id = :taskId', { taskId: id })
-      .groupBy('timeSpent.spentAt, task.title')
+      .groupBy('timeSpent.spentAt')
       .orderBy('timeSpent.spentAt', 'ASC');
 
     return queryBuilder.getRawMany();
