@@ -26,8 +26,7 @@ export class TasksController {
   }
 
   @ApiOkResponse({
-    description:
-      'Retorna a lista de registros de tarefas concluídas em cada dia de execução',
+    description: 'Retorna a lista de quantidade de tarefas concluídas por dia',
     type: TaskLog,
     isArray: true,
   })

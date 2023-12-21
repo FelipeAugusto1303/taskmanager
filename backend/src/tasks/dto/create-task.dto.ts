@@ -22,6 +22,7 @@ export class CreateTaskDTO {
 
   @ApiProperty({
     description: 'Chave booleana para verificar se a tarefa está concluída',
+    default: false,
   })
   @ApiPropertyOptional()
   @IsBoolean()
@@ -30,6 +31,7 @@ export class CreateTaskDTO {
 
   @ApiProperty({
     description: 'Data da conclusão da tarefa',
+    default: null,
   })
   @ApiPropertyOptional()
   @IsDateString()
