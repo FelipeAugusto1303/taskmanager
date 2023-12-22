@@ -27,4 +27,17 @@ export class TaskDetailComponent implements OnInit {
       });
     }
   }
+
+  updateTask = () => {
+    this.loadTask();
+  };
+
+  private loadTask() {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.service.getTask(id).subscribe((task) => {
+        this.task = task;
+      });
+    }
+  }
 }

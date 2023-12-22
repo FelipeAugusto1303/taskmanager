@@ -21,6 +21,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { EditModalComponent } from './shared/edit-modal/edit-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TaskInfoComponent } from './shared/task-info/task-info.component';
+import { TaskLogComponent } from './shared/task-log/task-log.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormCreateTaskComponent,
     TaskComponent,
     EditModalComponent,
+    TaskInfoComponent,
+    TaskLogComponent,
   ],
   imports: [
     BrowserModule,

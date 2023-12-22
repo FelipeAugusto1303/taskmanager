@@ -1,4 +1,9 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { TaskService } from 'src/app/services/task.service';
 import { ConcludedTask, Task } from 'src/app/shared/task/task';
@@ -20,35 +25,25 @@ import {
 export class HomeComponent implements OnInit, AfterViewInit {
   taskList: Task[] = [];
 
-  chartData: ConcludedTask[] = [
-    {
-      day: '2023-12-20',
-      total_concluded: 10,
-    },
-    {
-      day: '2023-12-21',
-      total_concluded: 15,
-    },
-    {
-      day: '2023-12-22',
-      total_concluded: 20,
-    },
-    {
-      day: '2023-12-23',
-      total_concluded: 10,
-    },
-  ];
-  constructor(private service: TaskService, private router: Router) {}
+  chartData: ConcludedTask[] = [];
+  constructor(
+    private service: TaskService,
+    private router: Router,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.service.listTasks().subscribe((list) => {
       this.taskList = list;
     });
+
+    this.service.getTotalConcludedByDay().subscribe((list) => {
+      this.chartData = list;
+      this.createLineChart();
+    });
   }
 
-  ngAfterViewInit(): void {
-    this.createLineChart();
-  }
+  ngAfterViewInit(): void {}
 
   updateTaskList = () => {
     this.loadTaskList();
@@ -61,8 +56,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   private createLineChart(): void {
-    const days = this.chartData.map((entry) => entry.day);
-    const totals = this.chartData.map((entry) => entry.total_concluded);
+    const days = this.chartData.map(
+      (entry) =>
+        `${new Date(entry.day).getFullYear()}-${
+          new Date(entry.day).getMonth() + 1
+        }-${new Date(entry.day).getDate() + 1}`
+    );
+    const totals = this.chartData.map((entry) => entry.total_hours);
+    console.log(totals);
 
     const ctx = document.getElementById('home-barChart') as HTMLCanvasElement;
 
@@ -76,9 +77,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
           {
             label: 'Total Concluded',
             data: totals,
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            backgroundColor: 'rgba(75, 192, 192, 0.5)',
             borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1,
+            borderWidth: 3,
           },
         ],
       },

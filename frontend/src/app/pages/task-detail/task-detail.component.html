@@ -1,6 +1,18 @@
 <div class="app-task-detail">
-  <div class="container">
-    <div class="task-info-container"></div>
-    <div class="task-log-container"></div>
+  <div class="task-info-container">
+    <app-task-info [task]="task" [updateTask]="updateTask"></app-task-info>
+    <div class="chart-background">
+      <h2>Horas trabalhadas por dia</h2>
+      <canvas id="task-barChart"></canvas>
+      <!-- <div *ngIf="chartData.length > 0; else noContent"></div> -->
+    </div>
+  </div>
+  <div class="task-log-container">
+    <app-task-log></app-task-log>
   </div>
 </div>
+<ng-template #noContent>
+  <div class="task-chart-no-content">
+    <h4>Ainda não há registro de horas trabalhadas.</h4>
+  </div>
+</ng-template>
