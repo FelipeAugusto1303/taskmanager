@@ -1,0 +1,35 @@
+.form-card {
+  width: 95%;
+  min-height: 200px;
+  border-radius: 12px;
+  display: block;
+
+  .fields-container-column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+  }
+
+  .description-textarea textarea {
+    min-height: 150px;
+  }
+
+  .fields-container-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .title-input {
+    width: 70%;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+}
