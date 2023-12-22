@@ -1,0 +1,48 @@
+<div class="form-card">
+  <h2>Crie uma nova tarefa</h2>
+  <form>
+    <div class="fields-container-column">
+      <div class="fields-container-row">
+        <mat-form-field class="title-input" appearance="outline">
+          <mat-label>Titulo</mat-label>
+          <input
+            class="title-input"
+            matInput
+            placeholder="Digite o titulo da tarefa"
+            name="title"
+            [(ngModel)]="task.title"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Data de vencimento</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            (dateInput)="addEvent($event)"
+            (dateChange)="addEvent($event)"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline" class="description-textarea">
+        <mat-label>Descrição</mat-label>
+        <textarea
+          matInput
+          placeholder="Descreva a atividade."
+          name="description"
+          [(ngModel)]="task.description"
+        ></textarea>
+      </mat-form-field>
+      <div class="actions">
+        <button (click)="createTask()" mat-raised-button color="primary">
+          Criar tarefa
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
