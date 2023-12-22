@@ -10,11 +10,15 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./form-create-task.component.scss'],
 })
 export class FormCreateTaskComponent implements OnInit {
+  @Input() updateList: Function | undefined;
+
   task: Task = {
     title: '',
     description: '',
     dueDate: '',
   };
+
+  date: moment.Moment | null = null;
 
   constructor(private service: TaskService) {}
 
@@ -29,6 +33,15 @@ export class FormCreateTaskComponent implements OnInit {
   createTask() {
     this.service.createTask(this.task).subscribe(() => {
       alert('Tarefa criada');
+      if (this.updateList) {
+        this.updateList();
+      }
+      this.task = {
+        title: '',
+        description: '',
+        dueDate: '',
+      };
+      this.date = null;
     });
   }
 }

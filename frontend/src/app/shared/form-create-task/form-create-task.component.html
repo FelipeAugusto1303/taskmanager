@@ -20,6 +20,8 @@
             [matDatepicker]="picker"
             (dateInput)="addEvent($event)"
             (dateChange)="addEvent($event)"
+            name="date"
+            [(ngModel)]="date"
           />
           <mat-datepicker-toggle
             matSuffix

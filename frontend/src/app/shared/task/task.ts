@@ -6,3 +6,8 @@ export interface Task {
   concluded?: boolean;
   concludedAt?: string;
 }
+
+export interface ConcludedTask {
+  day: string;
+  total_concluded: number;
+}

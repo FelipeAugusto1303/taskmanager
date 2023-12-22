@@ -1,1 +1,26 @@
-<p>task works!</p>
+<div class="card-container">
+  <mat-card class="app-task">
+    <mat-card-header>
+      <mat-card-title>{{ task.title }}</mat-card-title>
+      <mat-card-subtitle
+        >data de vencimento: {{ task.dueDate }}</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{ task.description }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="actions">
+      <button (click)="openTask()" mat-button color="primary">
+        Abrir tarefa
+      </button>
+      <button (click)="openDialog()" mat-icon-button color="primary">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button (click)="deleteTask()" mat-icon-button color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

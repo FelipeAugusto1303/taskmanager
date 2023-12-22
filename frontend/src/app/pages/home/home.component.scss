@@ -1,7 +1,45 @@
 .app-home {
+  display: block;
+  margin: 10px auto;
+  max-width: 1048px;
+  width: 90%;
+}
+
+.task-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 15px;
+  width: 1096px;
+  background-color: #e4e4de;
+  border-radius: 12px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 20px 0;
+
+  .task-container-title {
+    width: 90%;
+    display: flex;
+  }
+
+  .task-scroll {
+    max-height: 700px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0;
+  }
+}
+
+.home-chart-no-content {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+
+  h4 {
+    font-weight: bold;
+  }
 }

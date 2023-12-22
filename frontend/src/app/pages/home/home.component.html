@@ -1,4 +1,24 @@
 <div class="app-home">
-  <app-form-create-task></app-form-create-task>
-  <p>{{ taskList }}</p>
+  <app-form-create-task [updateList]="updateTaskList"></app-form-create-task>
+  <div class="task-container">
+    <div class="task-container-title">
+      <h2>Tarefas:</h2>
+    </div>
+
+    <div class="task-scroll">
+      <div *ngFor="let task of taskList">
+        <app-task [task]="task" [updateList]="updateTaskList"></app-task>
+      </div>
+    </div>
+  </div>
+  <div class="chart-container" *ngIf="chartData.length > 0; else noContent">
+    <h2>Tarefas concluídas por dia</h2>
+    <canvas id="home-barChart"></canvas>
+  </div>
 </div>
+<ng-template #noContent>
+  <h2>Tarefas concluídas por dia</h2>
+  <div class="home-chart-no-content">
+    <h4>Ainda não registro de tarefas concluídas.</h4>
+  </div>
+</ng-template>

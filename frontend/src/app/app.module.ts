@@ -17,6 +17,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { TaskComponent } from './shared/task/task.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { EditModalComponent } from './shared/edit-modal/edit-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     FormCreateTaskComponent,
     TaskComponent,
+    EditModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +44,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     FormsModule,
     HttpClientModule,
+    MatCardModule,
+    MatIconModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
