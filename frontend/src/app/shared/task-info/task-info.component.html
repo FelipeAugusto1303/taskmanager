@@ -1,0 +1,37 @@
+<div class="app-task-info">
+  <div class="task-info-title">
+    <div>
+      <h1>{{ task.title }}</h1>
+      <p>data de vencimento: {{ date }}</p>
+    </div>
+    <div>
+      <div *ngIf="task.concluded; else noCompleted">
+        <div class="concluded-container">
+          <mat-icon>check_circle</mat-icon>
+          <h5>Tarefa concluida em: {{ concludedDate }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="task-info-description">
+    <p>{{ task.description }}</p>
+  </div>
+  <div class="actions">
+    <button (click)="openDialog()" mat-raised-button color="primary">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button (click)="deleteTask()" mat-raised-button color="warn">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>
+<ng-template #noCompleted>
+  <button
+    (click)="concludeTask()"
+    mat-raised-button
+    color="primary"
+    class="conclude-button"
+  >
+    Concluir Tarefa
+  </button>
+</ng-template>

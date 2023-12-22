@@ -28,6 +28,17 @@ export class TaskService {
     );
   }
 
+  concludeTask(id: string): Observable<Task> {
+    const month = String(new Date().getMonth() + 1).padStart(2, '0');
+    const day = String(new Date().getDate() + 1).padStart(2, '0');
+    const date = `${new Date().getFullYear()}-${month}-${day}`;
+
+    return this.http.patch<Task>(`http://localhost:3000/tasks/${id}`, {
+      concluded: true,
+      concludedAt: date,
+    });
+  }
+
   deleteTask(id: string): Observable<Task> {
     return this.http.delete<Task>(`http://localhost:3000/tasks/${id}`);
   }

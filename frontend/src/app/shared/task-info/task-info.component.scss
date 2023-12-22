@@ -1,0 +1,60 @@
+.app-task-info {
+  background-color: #e5dcd0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 12px;
+  padding: 10px;
+
+  .task-info-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    h1 {
+      font-weight: bold;
+      line-height: 10px;
+      margin-top: 10px;
+    }
+    p {
+      line-height: 10px;
+      margin-left: 15px;
+      color: #525252;
+    }
+
+    .conclude-button {
+      height: 40px;
+    }
+
+    .concluded-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      mat-icon {
+        font-size: 15px;
+        color: #5dc460;
+      }
+      h5 {
+        line-height: 10px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .task-info-description {
+    width: 95%;
+    border: 1px solid #777;
+    border-radius: 12px;
+    min-height: 100px;
+    padding: 10px;
+  }
+  .actions {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
