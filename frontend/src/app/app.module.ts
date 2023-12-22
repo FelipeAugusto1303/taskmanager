@@ -8,6 +8,15 @@ import { HomeComponent } from './pages/home/home.component';
 import { TaskDetailComponent } from './pages/task-detail/task-detail.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormCreateTaskComponent } from './shared/form-create-task/form-create-task.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button';
+import { TaskComponent } from './shared/task/task.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,12 +24,21 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     HomeComponent,
     TaskDetailComponent,
     HeaderComponent,
+    FormCreateTaskComponent,
+    TaskComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
