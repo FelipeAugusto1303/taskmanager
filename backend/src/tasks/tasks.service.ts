@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateTaskDTO } from './dto/create-task.dto';
 import { UpdateTaskDTO } from './dto/update-task.dto';
+import { TimeSpent } from 'src/time-spent/entities/timeSpent.entity';
 
 type TaskLog = {
   dia: string;
@@ -15,6 +16,8 @@ export class TasksService {
   constructor(
     @InjectRepository(Tasks)
     private readonly taskRepository: Repository<Tasks>,
+    @InjectRepository(TimeSpent)
+    private readonly timeSpentRepository: Repository<TimeSpent>,
   ) {}
 
   async findAll() {
@@ -62,12 +65,26 @@ export class TasksService {
   }
 
   async remove(id: string) {
-    const task = await this.taskRepository.findOne({
-      where: { id },
-    });
-    if (!task) {
-      throw new HttpException(`Task id ${id} not found`, HttpStatus.NOT_FOUND);
-    }
-    return this.taskRepository.remove(task);
+    await this.timeSpentRepository
+      .createQueryBuilder()
+      .delete()
+      .from('timeSpent')
+      .where('taskId = :id', { id })
+      .execute();
+
+    await this.taskRepository
+      .createQueryBuilder()
+      .delete()
+      .from('task')
+      .where('id = :id', { id })
+      .execute();
+
+    // const task = await this.taskRepository.findOne({
+    //   where: { id },
+    // });
+    // if (!task) {
+    //   throw new HttpException(`Task id ${id} not found`, HttpStatus.NOT_FOUND);
+    // }
+    // return this.taskRepository.remove(task);
   }
 }

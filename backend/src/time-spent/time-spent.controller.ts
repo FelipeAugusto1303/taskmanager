@@ -42,6 +42,11 @@ export class TimeSpentController {
     return this.timeSpentService.findHours(id);
   }
 
+  @Get('/logs/:id')
+  findAllLogs(@Param('id') id: string){
+    return this.timeSpentService.findAllLogs(id)
+  }
+
   @ApiResponse({ status: 400, description: 'Bad request' })
   @Post()
   create(@Body() createTimeSpentDTO: CreateTimeSpentDTO) {

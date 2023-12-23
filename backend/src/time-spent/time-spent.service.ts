@@ -31,9 +31,18 @@ export class TimeSpentService {
     const queryBuilder = this.timeSpentRepository
       .createQueryBuilder('timeSpent')
       .select(['timeSpent.spentAt', 'SUM(timeSpent.timeSpent) as hours'])
-      .leftJoin(Tasks, 'task', 'timeSpent.taskId = task.id')
-      .where('task.id = :taskId', { taskId: id })
+      .where('timeSpent.taskId = :taskId', { taskId: id })
       .groupBy('timeSpent.spentAt')
+      .orderBy('timeSpent.spentAt', 'ASC');
+
+    return queryBuilder.getRawMany();
+  }
+
+  async findAllLogs(id: string) {
+    const queryBuilder = this.timeSpentRepository
+      .createQueryBuilder('timeSpent')
+      .select(['timeSpent.spentAt', 'timeSpent.comment', 'timeSpent.timeSpent'])
+      .where('timeSpent.taskId = :taskId', { taskId: id })
       .orderBy('timeSpent.spentAt', 'ASC');
 
     return queryBuilder.getRawMany();
