@@ -12,7 +12,7 @@ import { FormCreateTaskComponent } from './shared/form-create-task/form-create-t
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { TaskComponent } from './shared/task/task.component';
 import { FormsModule } from '@angular/forms';
@@ -56,7 +56,7 @@ import { RegisterLogModalComponent } from './shared/register-log-modal/register-
     MatIconModule,
     MatDialogModule,
   ],
-  providers: [],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

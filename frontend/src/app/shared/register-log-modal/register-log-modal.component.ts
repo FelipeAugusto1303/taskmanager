@@ -34,9 +34,14 @@ export class RegisterLogModalComponent implements OnInit {
       comment: this.comment,
       spentAt: stringData,
     };
-    this.service.createTimeSpent(body).subscribe(() => {
-      this.dialogRef.close();
-    });
+    this.service.createTimeSpent(body).subscribe(
+      () => {
+        this.dialogRef.close();
+      },
+      (error) => {
+        console.log(error.status);
+      }
+    );
   }
 
   closeDialog() {
