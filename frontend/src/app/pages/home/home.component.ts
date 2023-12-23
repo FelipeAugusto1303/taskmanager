@@ -68,9 +68,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   private createLineChart(): void {
     const days = this.chartData.map(
       (entry) =>
-        `${new Date(entry.day).getFullYear()}-${
+        `${new Date(entry.day).getDate() + 1}/${
           new Date(entry.day).getMonth() + 1
-        }-${new Date(entry.day).getDate() + 1}`
+        }/${new Date(entry.day).getFullYear()}`
     );
     const totals = this.chartData.map((entry) => entry.total_hours);
 
@@ -90,7 +90,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         labels: days,
         datasets: [
           {
-            label: 'Total Concluded',
+            label: 'Total de tarefas concluídas',
             data: totals,
             backgroundColor: 'rgba(75, 192, 192, 0.5)',
             borderColor: 'rgba(75, 192, 192, 1)',

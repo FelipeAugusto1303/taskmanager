@@ -79,9 +79,9 @@ export class TaskDetailComponent implements OnInit {
   private createLineChart(): void {
     const days = this.hoursTask.map(
       (entry) =>
-        `${new Date(entry.timeSpent_spentAt).getFullYear()}-${
+        `${new Date(entry.timeSpent_spentAt).getDate() + 1}/${
           new Date(entry.timeSpent_spentAt).getMonth() + 1
-        }-${new Date(entry.timeSpent_spentAt).getDate() + 1}`
+        }/${new Date(entry.timeSpent_spentAt).getFullYear()}`
     );
     const totals = this.hoursTask.map((entry) => entry.hours);
 
@@ -101,7 +101,7 @@ export class TaskDetailComponent implements OnInit {
         labels: days,
         datasets: [
           {
-            label: 'Total Concluded',
+            label: 'Total de horas trabalhadas',
             data: totals,
             backgroundColor: 'rgba(75, 192, 192, 0.5)',
             borderColor: 'rgba(75, 192, 192, 1)',
