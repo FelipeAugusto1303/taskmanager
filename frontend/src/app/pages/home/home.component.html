@@ -7,12 +7,14 @@
       </div>
 
       <div class="task-scroll">
-        <div *ngFor="let task of taskList">
-          <app-task
-            [task]="task"
-            [updateList]="updateTaskList"
-            [updateChart]="updateChart"
-          ></app-task>
+        <div class="task-scroll-card-container">
+          <div *ngFor="let task of taskList">
+            <app-task
+              [task]="task"
+              [updateList]="updateTaskList"
+              [updateChart]="updateChart"
+            ></app-task>
+          </div>
         </div>
       </div>
     </div>
@@ -20,7 +22,7 @@
   <div class="chart-background">
     <h2>Tarefas concluídas por dia</h2>
     <canvas id="home-barChart"></canvas>
-    <div *ngIf="chartData.length > 0; else noContent"></div>
+    <!-- <div *ngIf="chartData.length > 0; else noContent"></div> -->
   </div>
 </div>
 <ng-template #noContent>

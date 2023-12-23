@@ -77,7 +77,7 @@ export class TaskInfoComponent implements OnInit, OnChanges {
         2,
         '0'
       );
-      const day = String(this.tempDateConcluded.getDate()).padStart(2, '0');
+      const day = String(this.tempDateConcluded.getDate() + 1).padStart(2, '0');
       this.concludedDate = `${day}/${month}/${this.tempDateConcluded.getFullYear()}`;
     }
   }
