@@ -1,6 +1,15 @@
 version: "3"
 
 services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    volumes:
+      - ./src:/app/src
+
   backend:
     build: ./backend
     command: npm run start:dev
