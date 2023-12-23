@@ -26,10 +26,6 @@ export class RegisterLogModalComponent implements OnInit {
   ngOnInit(): void {}
 
   createLogRegister() {
-    console.log(this.id);
-    if (this.id) {
-      console.log('entrei', this.id);
-    }
     const stringData = new Date().toISOString();
 
     const body: CreateTimeSpent = {

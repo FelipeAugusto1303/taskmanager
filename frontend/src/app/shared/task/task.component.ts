@@ -53,7 +53,6 @@ export class TaskComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
       if (this.updateList) {
         this.updateList();
       }

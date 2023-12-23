@@ -74,7 +74,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
         }-${new Date(entry.day).getDate() + 1}`
     );
     const totals = this.chartData.map((entry) => entry.total_hours);
-    console.log(totals);
 
     const ctx = document.getElementById('home-barChart') as HTMLCanvasElement;
 
