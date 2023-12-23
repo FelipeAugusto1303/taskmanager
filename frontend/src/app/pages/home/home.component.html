@@ -8,7 +8,11 @@
 
       <div class="task-scroll">
         <div *ngFor="let task of taskList">
-          <app-task [task]="task" [updateList]="updateTaskList"></app-task>
+          <app-task
+            [task]="task"
+            [updateList]="updateTaskList"
+            [updateChart]="updateChart"
+          ></app-task>
         </div>
       </div>
     </div>

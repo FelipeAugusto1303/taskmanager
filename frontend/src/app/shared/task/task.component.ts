@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Task } from './task';
+import { Task } from '../../interfaces/task';
 import { TaskService } from 'src/app/services/task.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
@@ -19,6 +19,7 @@ export class TaskComponent implements OnInit {
   };
 
   @Input() updateList: Function | undefined;
+  @Input() updateChart: Function | undefined;
 
   constructor(
     private service: TaskService,
@@ -31,9 +32,11 @@ export class TaskComponent implements OnInit {
   deleteTask() {
     if (this.task.id) {
       this.service.deleteTask(this.task.id).subscribe(() => {
-        alert('Tarefa deletada');
         if (this.updateList) {
           this.updateList();
+        }
+        if (this.updateChart) {
+          this.updateChart();
         }
       });
     }

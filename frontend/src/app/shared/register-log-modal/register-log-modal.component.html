@@ -1,0 +1,35 @@
+<div class="register-log-card">
+  <h2>Registre suas horas trabalhadas</h2>
+  <form>
+    <div class="fields-container-column">
+      <mat-form-field class="title-input" appearance="outline">
+        <mat-label>Horas trabalhadas</mat-label>
+        <input
+          class="title-input"
+          matInput
+          placeholder="Digite o número de horas trabalhadas"
+          name="hour"
+          [(ngModel)]="hour"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="description-textarea">
+        <mat-label>Descreva a sua atividade</mat-label>
+        <textarea
+          matInput
+          placeholder="Descreva a sua atividade aqui."
+          name="comment"
+          [(ngModel)]="comment"
+        ></textarea>
+      </mat-form-field>
+      <div class="actions">
+        <button (click)="createLogRegister()" mat-raised-button color="primary">
+          Salvar
+        </button>
+        <button (click)="closeDialog()" mat-raised-button color="warn">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

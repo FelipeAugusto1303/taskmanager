@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TaskService } from 'src/app/services/task.service';
 import { TimeSpentService } from 'src/app/services/time-spent.service';
-import { HoursTask, Task } from 'src/app/shared/task/task';
+import { HoursTask, Task } from 'src/app/interfaces/task';
 import {
   Chart,
   LineController,
@@ -53,11 +53,25 @@ export class TaskDetailComponent implements OnInit {
     this.loadTask();
   };
 
+  updateChart = () => {
+    this.loadChart();
+  };
+
   private loadTask() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.service.getTask(id).subscribe((task) => {
         this.task = task;
+      });
+    }
+  }
+
+  private loadChart() {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.spentService.getSpentHours(id).subscribe((hours) => {
+        this.hoursTask = hours;
+        this.createLineChart();
       });
     }
   }
@@ -72,6 +86,12 @@ export class TaskDetailComponent implements OnInit {
     const totals = this.hoursTask.map((entry) => entry.hours);
 
     const ctx = document.getElementById('task-barChart') as HTMLCanvasElement;
+
+    const existingChart = Chart.getChart(ctx);
+
+    if (existingChart) {
+      existingChart.destroy();
+    }
 
     Chart.register(...registerables);
 

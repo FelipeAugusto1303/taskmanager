@@ -6,7 +6,7 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import { Task } from '../task/task';
+import { Task } from '../../interfaces/task';
 import { TaskService } from 'src/app/services/task.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
@@ -77,7 +77,7 @@ export class TaskInfoComponent implements OnInit, OnChanges {
         2,
         '0'
       );
-      const day = String(this.tempDateConcluded.getDate() + 1).padStart(2, '0');
+      const day = String(this.tempDateConcluded.getDate()).padStart(2, '0');
       this.concludedDate = `${day}/${month}/${this.tempDateConcluded.getFullYear()}`;
     }
   }

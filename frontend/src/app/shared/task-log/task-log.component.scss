@@ -8,4 +8,12 @@
   padding: 10px;
   height: 700px;
   border-radius: 12px;
+
+  .task-log-container {
+    display: block;
+    width: 95%;
+    height: 620px;
+    border-radius: 12px;
+    overflow-y: auto;
+  }
 }

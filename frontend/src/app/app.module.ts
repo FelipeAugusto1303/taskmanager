@@ -23,6 +23,8 @@ import { EditModalComponent } from './shared/edit-modal/edit-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TaskInfoComponent } from './shared/task-info/task-info.component';
 import { TaskLogComponent } from './shared/task-log/task-log.component';
+import { TaskCommentComponent } from './shared/task-comment/task-comment.component';
+import { RegisterLogModalComponent } from './shared/register-log-modal/register-log-modal.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { TaskLogComponent } from './shared/task-log/task-log.component';
     EditModalComponent,
     TaskInfoComponent,
     TaskLogComponent,
+    TaskCommentComponent,
+    RegisterLogModalComponent,
   ],
   imports: [
     BrowserModule,

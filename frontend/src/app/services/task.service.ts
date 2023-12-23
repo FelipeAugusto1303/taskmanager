@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ConcludedTask, Task } from '../shared/task/task';
+import { ConcludedTask, Task } from '../interfaces/task';
 import { Observable } from 'rxjs';
 
 @Injectable({

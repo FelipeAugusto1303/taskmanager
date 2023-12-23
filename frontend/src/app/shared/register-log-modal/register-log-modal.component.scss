@@ -1,0 +1,15 @@
+.fields-container-column {
+  display: flex;
+  flex-direction: column;
+
+  .description-textarea textarea {
+    min-height: 200px;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: flex-end;
+  }
+}

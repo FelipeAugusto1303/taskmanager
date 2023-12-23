@@ -1,9 +1,17 @@
 <div class="app-task-info">
   <div class="task-info-title">
-    <div>
-      <h1>{{ task.title }}</h1>
-      <p>data de vencimento: {{ date }}</p>
+    <div class="title-header-container">
+      <div class="back-button">
+        <button routerLink="/" mat-icon-button>
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </div>
+      <div>
+        <h1>{{ task.title }}</h1>
+        <p>data de vencimento: {{ date }}</p>
+      </div>
     </div>
+
     <div>
       <div *ngIf="task.concluded; else noCompleted">
         <div class="concluded-container">
@@ -17,7 +25,12 @@
     <p>{{ task.description }}</p>
   </div>
   <div class="actions">
-    <button (click)="openDialog()" mat-raised-button color="primary">
+    <button
+      (click)="openDialog()"
+      [disabled]="task.concluded"
+      mat-raised-button
+      color="primary"
+    >
       <mat-icon>edit</mat-icon>
     </button>
     <button (click)="deleteTask()" mat-raised-button color="warn">

@@ -6,6 +6,7 @@
   gap: 15px;
   border-radius: 12px;
   padding: 10px;
+  margin-bottom: 20px;
 
   .task-info-title {
     display: flex;
@@ -40,6 +41,11 @@
         line-height: 10px;
         font-weight: bold;
       }
+    }
+
+    .title-header-container {
+      display: flex;
+      gap: 10px;
     }
   }
 

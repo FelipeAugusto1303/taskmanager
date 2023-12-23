@@ -1,4 +1,10 @@
 <div class="app-task-log">
-  <div class="task-log-container"></div>
-  <button mat-raised-button color="primary">Registrar log</button>
+  <div class="task-log-container">
+    <div *ngFor="let log of logs">
+      <app-task-comment [log]="log"></app-task-comment>
+    </div>
+  </div>
+  <button (click)="openDialog()" mat-raised-button color="accent">
+    Registrar log
+  </button>
 </div>

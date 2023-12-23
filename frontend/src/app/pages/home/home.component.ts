@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { TaskService } from 'src/app/services/task.service';
-import { ConcludedTask, Task } from 'src/app/shared/task/task';
+import { ConcludedTask, Task } from 'src/app/interfaces/task';
 import {
   Chart,
   LineController,
@@ -49,9 +49,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.loadTaskList();
   };
 
+  updateChart = () => {
+    this.loadChart();
+  };
+
   private loadTaskList() {
     this.service.listTasks().subscribe((list) => {
       this.taskList = list;
+    });
+  }
+
+  private loadChart() {
+    this.service.getTotalConcludedByDay().subscribe((list) => {
+      this.chartData = list;
+      this.createLineChart();
     });
   }
 
@@ -66,6 +77,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
     console.log(totals);
 
     const ctx = document.getElementById('home-barChart') as HTMLCanvasElement;
+
+    const existingChart = Chart.getChart(ctx);
+
+    if (existingChart) {
+      existingChart.destroy();
+    }
 
     Chart.register(...registerables);
 

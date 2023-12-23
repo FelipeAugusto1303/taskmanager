@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import * as moment from 'moment';
-import { Task } from '../task/task';
+import { Task } from '../../interfaces/task';
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
@@ -32,7 +32,6 @@ export class FormCreateTaskComponent implements OnInit {
 
   createTask() {
     this.service.createTask(this.task).subscribe(() => {
-      alert('Tarefa criada');
       if (this.updateList) {
         this.updateList();
       }
