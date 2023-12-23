@@ -8,13 +8,30 @@
 
       <div class="task-scroll">
         <div class="task-scroll-card-container">
-          <div *ngFor="let task of taskList">
-            <app-task
-              [task]="task"
-              [updateList]="updateTaskList"
-              [updateChart]="updateChart"
-            ></app-task>
-          </div>
+          <mat-tab-group class="tab-group">
+            <mat-tab label="Em andamento">
+              <ng-template matTabContent>
+                <div *ngFor="let task of taskList">
+                  <app-task
+                    [task]="task"
+                    [updateList]="updateTaskList"
+                    [updateChart]="updateChart"
+                  ></app-task>
+                </div>
+              </ng-template>
+            </mat-tab>
+            <mat-tab label="Concluidas">
+              <ng-template matTabContent>
+                <div *ngFor="let task of concludedList">
+                  <app-concluded-task
+                    [task]="task"
+                    [updateList]="updateTaskList"
+                    [updateChart]="updateChart"
+                  ></app-concluded-task>
+                </div>
+              </ng-template>
+            </mat-tab>
+          </mat-tab-group>
         </div>
       </div>
     </div>

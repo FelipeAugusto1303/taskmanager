@@ -24,17 +24,15 @@ import {
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   taskList: Task[] = [];
+  concludedList: Task[] = [];
 
   chartData: ConcludedTask[] = [];
-  constructor(
-    private service: TaskService,
-    private router: Router,
-    private cdr: ChangeDetectorRef
-  ) {}
+  constructor(private service: TaskService) {}
 
   ngOnInit(): void {
     this.service.listTasks().subscribe((list) => {
-      this.taskList = list;
+      this.taskList = list.filter((item) => item.concluded === false);
+      this.concludedList = list.filter((item) => item.concluded === true);
     });
 
     this.service.getTotalConcludedByDay().subscribe((list) => {
@@ -55,7 +53,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   private loadTaskList() {
     this.service.listTasks().subscribe((list) => {
-      this.taskList = list;
+      this.taskList = list.filter((item) => item.concluded === false);
+      this.concludedList = list.filter((item) => item.concluded === true);
     });
   }
 

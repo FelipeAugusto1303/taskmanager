@@ -3,10 +3,14 @@
     <mat-card-header>
       <mat-card-title>{{ task.title }}</mat-card-title>
       <mat-card-subtitle
-        >data de vencimento: {{ formatedDueDate }}</mat-card-subtitle
-      >
+        >data de vencimento: {{ formatedDueDate }} <br />
+      </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
+      <div class="concluded-container">
+        <mat-icon>check_circle</mat-icon>
+        <p>Tarefa concluida em: {{ formatedConcludedDate }}</p>
+      </div>
       <p>
         {{ task.description }}
       </p>
@@ -15,9 +19,7 @@
       <button (click)="openTask()" mat-button color="primary">
         Abrir tarefa
       </button>
-      <button (click)="openDialog()" mat-icon-button color="primary">
-        <mat-icon>edit</mat-icon>
-      </button>
+
       <button (click)="deleteTask()" mat-icon-button color="warn">
         <mat-icon>delete</mat-icon>
       </button>

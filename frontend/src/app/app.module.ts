@@ -25,6 +25,8 @@ import { TaskInfoComponent } from './shared/task-info/task-info.component';
 import { TaskLogComponent } from './shared/task-log/task-log.component';
 import { TaskCommentComponent } from './shared/task-comment/task-comment.component';
 import { RegisterLogModalComponent } from './shared/register-log-modal/register-log-modal.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { ConcludedTaskComponent } from './shared/concluded-task/concluded-task.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { RegisterLogModalComponent } from './shared/register-log-modal/register-
     TaskLogComponent,
     TaskCommentComponent,
     RegisterLogModalComponent,
+    ConcludedTaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { RegisterLogModalComponent } from './shared/register-log-modal/register-
     MatCardModule,
     MatIconModule,
     MatDialogModule,
+    MatTabsModule,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],

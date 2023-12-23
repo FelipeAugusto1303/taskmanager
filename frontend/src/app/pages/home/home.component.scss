@@ -40,6 +40,13 @@
       flex-direction: column;
       gap: 15px;
       width: 100%;
+
+      .tab-group {
+        margin: 10px;
+        .tab {
+          margin-bottom: 100px;
+        }
+      }
     }
   }
 }

@@ -11,6 +11,23 @@
   background-color: #fff;
   min-height: 100px;
   border-radius: 12px;
+
+  .concluded-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    mat-icon {
+      font-size: 10px;
+      color: #5dc460;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    p {
+      font-size: 10px;
+      color: #777;
+    }
+  }
 }
 
 .actions {
