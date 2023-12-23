@@ -11,3 +11,8 @@ export interface ConcludedTask {
   day: string;
   total_hours: number;
 }
+
+export interface HoursTask {
+  timeSpent_spentAt: string;
+  hours: number;
+}

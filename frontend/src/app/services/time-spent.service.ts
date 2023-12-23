@@ -1,9 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HoursTask } from '../shared/task/task';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TimeSpentService {
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
+  getSpentHours(id: string): Observable<HoursTask[]> {
+    return this.http.get<HoursTask[]>(
+      `http://localhost:3000/time-spent/hours/${id}`
+    );
+  }
 }
