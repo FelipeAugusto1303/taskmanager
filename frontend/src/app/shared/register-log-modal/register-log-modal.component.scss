@@ -12,4 +12,17 @@
     gap: 15px;
     justify-content: flex-end;
   }
+
+  .fields-container-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .title-input {
+    width: 60%;
+  }
+  .date-input {
+    width: 40%;
+  }
 }

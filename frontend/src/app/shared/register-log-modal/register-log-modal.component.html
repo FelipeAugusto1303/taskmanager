@@ -2,16 +2,34 @@
   <h2>Registre suas horas trabalhadas</h2>
   <form>
     <div class="fields-container-column">
-      <mat-form-field class="title-input" appearance="outline">
-        <mat-label>Horas trabalhadas</mat-label>
-        <input
-          class="title-input"
-          matInput
-          placeholder="Digite o número de horas trabalhadas"
-          name="hour"
-          [(ngModel)]="hour"
-        />
-      </mat-form-field>
+      <div class="fields-container-row">
+        <mat-form-field class="title-input" appearance="outline">
+          <mat-label>Horas trabalhadas</mat-label>
+          <input
+            class="title-input"
+            matInput
+            placeholder="Digite o número de horas trabalhadas"
+            name="hour"
+            [(ngModel)]="hour"
+          />
+        </mat-form-field>
+        <mat-form-field class="date-input" appearance="outline">
+          <mat-label>Data do registro</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            (dateInput)="addEvent($event)"
+            (dateChange)="addEvent($event)"
+            name="date"
+            [(ngModel)]="date"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
 
       <mat-form-field appearance="outline" class="description-textarea">
         <mat-label>Descreva a sua atividade</mat-label>
