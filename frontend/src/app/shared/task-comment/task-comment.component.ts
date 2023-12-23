@@ -30,7 +30,7 @@ export class TaskCommentComponent implements OnInit {
         new Date(this.log.timeSpent_spentAt).getMonth() + 1
       ).padStart(2, '0');
       const day = String(
-        new Date(this.log.timeSpent_spentAt).getDate() + 2
+        new Date(this.log.timeSpent_spentAt).getDate() + 1
       ).padStart(2, '0');
       this.dateComment = `${day}/${month}/${new Date(
         this.log.timeSpent_spentAt
