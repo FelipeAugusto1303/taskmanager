@@ -28,7 +28,7 @@ export class EditModalComponent implements OnInit {
 
   updateTask() {
     const year = this.selectedDate.getFullYear();
-    const month = String(this.selectedDate.getMonth() + 1).padStart(2, '0'); // Mês é base 0, então adicionamos 1
+    const month = String(this.selectedDate.getMonth() + 1).padStart(2, '0');
     const day = String(this.selectedDate.getDate()).padStart(2, '0');
 
     const formattedDate = `${year}-${month}-${day}`;

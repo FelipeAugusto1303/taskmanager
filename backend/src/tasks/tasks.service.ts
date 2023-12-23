@@ -78,13 +78,5 @@ export class TasksService {
       .from('task')
       .where('id = :id', { id })
       .execute();
-
-    // const task = await this.taskRepository.findOne({
-    //   where: { id },
-    // });
-    // if (!task) {
-    //   throw new HttpException(`Task id ${id} not found`, HttpStatus.NOT_FOUND);
-    // }
-    // return this.taskRepository.remove(task);
   }
 }
