@@ -28,7 +28,7 @@ export class TaskInfoComponent implements OnInit, OnChanges {
     concludedAt: '',
   };
 
-  @Input() updateTask: Function | undefined;
+  @Input() updateTask: Function = () => {};
 
   tempDate: Date | null = null;
   tempDateConcluded: Date | null = null;
@@ -51,7 +51,7 @@ export class TaskInfoComponent implements OnInit, OnChanges {
     }
   }
 
-  private updateDate(): void {
+  updateDate(): void {
     if (this.task.dueDate) {
       this.tempDate = new Date(this.task.dueDate);
       this.formatDate();
@@ -66,7 +66,7 @@ export class TaskInfoComponent implements OnInit, OnChanges {
     }
   }
 
-  private updateConcludedDate(): void {
+  updateConcludedDate(): void {
     if (this.task.concludedAt) {
       this.tempDateConcluded = new Date(this.task.concludedAt);
       this.formatConcludedDate();
@@ -113,9 +113,7 @@ export class TaskInfoComponent implements OnInit, OnChanges {
     if (this.task.id) {
       this.taskService.concludeTask(this.task.id).subscribe(
         () => {
-          if (this.updateTask) {
-            this.updateTask();
-          }
+          this.updateTask();
         },
         (error) => {
           let message = '';

@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./form-create-task.component.scss'],
 })
 export class FormCreateTaskComponent implements OnInit {
-  @Input() updateList: Function | undefined;
+  @Input() updateList: Function = () => {};
 
   task: Task = {
     title: '',

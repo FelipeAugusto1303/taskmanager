@@ -13,7 +13,7 @@ import { RegisterLogModalComponent } from '../register-log-modal/register-log-mo
 export class TaskLogComponent implements OnInit {
   logs: TimeSpent[] = [];
 
-  @Input() updateChart: Function | undefined;
+  @Input() updateChart: Function = () => {};
 
   constructor(
     private service: TimeSpentService,
@@ -35,9 +35,8 @@ export class TaskLogComponent implements OnInit {
   };
 
   private getLog() {
-    if (this.updateChart) {
-      this.updateChart();
-    }
+    this.updateChart();
+
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.service.getAllLogsById(id).subscribe((logs) => {

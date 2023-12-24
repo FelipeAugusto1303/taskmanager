@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Task } from 'src/app/interfaces/task';
 import { TaskService } from 'src/app/services/task.service';
@@ -18,17 +17,13 @@ export class ConcludedTaskComponent implements OnInit {
     concludedAt: '',
   };
 
-  @Input() updateList: Function | undefined;
-  @Input() updateChart: Function | undefined;
+  @Input() updateList: Function = () => {};
+  @Input() updateChart: Function = () => {};
 
   formatedDueDate: string = '';
   formatedConcludedDate: string = '';
 
-  constructor(
-    private service: TaskService,
-    private router: Router,
-    public dialog: MatDialog
-  ) {}
+  constructor(private service: TaskService, private router: Router) {}
 
   ngOnInit(): void {
     if (this.task.dueDate) {

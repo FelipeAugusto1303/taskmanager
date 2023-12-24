@@ -19,8 +19,8 @@ export class TaskComponent implements OnInit {
     dueDate: '',
   };
 
-  @Input() updateList: Function | undefined;
-  @Input() updateChart: Function | undefined;
+  @Input() updateList: Function = () => {};
+  @Input() updateChart: Function = () => {};
 
   formatedDueDate: string = '';
 

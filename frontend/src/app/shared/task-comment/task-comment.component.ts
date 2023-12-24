@@ -21,7 +21,7 @@ export class TaskCommentComponent implements OnInit {
   hourComment: string = '';
   dateComment: string = '';
 
-  @Input() updateLog: Function | undefined;
+  @Input() updateLog: Function = () => {};
 
   constructor(
     private service: TimeSpentService,
@@ -50,7 +50,6 @@ export class TaskCommentComponent implements OnInit {
   }
 
   deleteComment() {
-    console.log('entrei');
     this.service.deleteComment(this.log.timeSpent_id).subscribe(
       () => {
         if (this.updateLog) {
