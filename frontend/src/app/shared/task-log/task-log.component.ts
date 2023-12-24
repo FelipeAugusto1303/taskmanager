@@ -48,7 +48,7 @@ export class TaskLogComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(RegisterLogModalComponent, {
-      width: '50%',
+      width: '100%',
       data: this.route.snapshot.paramMap.get('id'),
     });
     dialogRef.afterClosed().subscribe(() => {
