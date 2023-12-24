@@ -11,6 +11,7 @@ import { TaskService } from 'src/app/services/task.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { EditModalComponent } from '../edit-modal/edit-modal.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-task-info',
@@ -37,7 +38,8 @@ export class TaskInfoComponent implements OnInit, OnChanges {
   constructor(
     private taskService: TaskService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {}
@@ -84,19 +86,53 @@ export class TaskInfoComponent implements OnInit, OnChanges {
 
   deleteTask() {
     if (this.task.id) {
-      this.taskService.deleteTask(this.task.id).subscribe(() => {
-        this.router.navigate(['/']);
-      });
+      this.taskService.deleteTask(this.task.id).subscribe(
+        () => {
+          this.router.navigate(['/']);
+        },
+        (error) => {
+          let message = '';
+          if (error.status === 404) {
+            message = 'Tarefa não encontrada! Verifique as informações.';
+          }
+          if (error.status === 500) {
+            message = 'Ocorreu um erro no servidor!';
+          }
+
+          this.snackBar.open(message, 'OK', {
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            duration: 3000,
+          });
+        }
+      );
     }
   }
 
   concludeTask() {
     if (this.task.id) {
-      this.taskService.concludeTask(this.task.id).subscribe(() => {
-        if (this.updateTask) {
-          this.updateTask();
+      this.taskService.concludeTask(this.task.id).subscribe(
+        () => {
+          if (this.updateTask) {
+            this.updateTask();
+          }
+        },
+        (error) => {
+          let message = '';
+          if (error.status === 404) {
+            message = 'Tarefa não encontrada! Verifique as informações.';
+          }
+          if (error.status === 500) {
+            message = 'Ocorreu um erro no servidor!';
+          }
+
+          this.snackBar.open(message, 'OK', {
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            duration: 3000,
+          });
         }
-      });
+      );
     }
   }
 

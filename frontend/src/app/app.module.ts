@@ -27,6 +27,8 @@ import { TaskCommentComponent } from './shared/task-comment/task-comment.compone
 import { RegisterLogModalComponent } from './shared/register-log-modal/register-log-modal.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ConcludedTaskComponent } from './shared/concluded-task/concluded-task.component';
+import { EditLogModalComponent } from './shared/edit-log-modal/edit-log-modal.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { ConcludedTaskComponent } from './shared/concluded-task/concluded-task.c
     TaskCommentComponent,
     RegisterLogModalComponent,
     ConcludedTaskComponent,
+    EditLogModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ import { ConcludedTaskComponent } from './shared/concluded-task/concluded-task.c
     MatIconModule,
     MatDialogModule,
     MatTabsModule,
+    MatSnackBarModule,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],

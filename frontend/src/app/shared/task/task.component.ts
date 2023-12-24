@@ -4,6 +4,7 @@ import { TaskService } from 'src/app/services/task.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { EditModalComponent } from '../edit-modal/edit-modal.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-task',
@@ -26,7 +27,8 @@ export class TaskComponent implements OnInit {
   constructor(
     private service: TaskService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -47,14 +49,31 @@ export class TaskComponent implements OnInit {
 
   deleteTask() {
     if (this.task.id) {
-      this.service.deleteTask(this.task.id).subscribe(() => {
-        if (this.updateList) {
-          this.updateList();
+      this.service.deleteTask(this.task.id).subscribe(
+        () => {
+          if (this.updateList) {
+            this.updateList();
+          }
+          if (this.updateChart) {
+            this.updateChart();
+          }
+        },
+        (error) => {
+          let message = '';
+          if (error.status === 404) {
+            message = 'Tarefa não encontrada! verifique as informações.';
+          }
+          if (error.status === 500) {
+            message = 'Ocorreu um erro no servidor!';
+          }
+
+          this.snackBar.open(message, 'OK', {
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            duration: 3000,
+          });
         }
-        if (this.updateChart) {
-          this.updateChart();
-        }
-      });
+      );
     }
   }
 

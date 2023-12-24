@@ -16,28 +16,25 @@
   }
 }
 
-.form-card {
-  width: 95%;
-  min-height: 200px;
-  border-radius: 12px;
-  display: block;
-
-  .fields-container-column {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 100%;
-  }
+.fields-container-column {
+  display: flex;
+  flex-direction: column;
 
   .description-textarea textarea {
-    min-height: 150px;
+    min-height: 200px;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: flex-end;
   }
 
   .fields-container-row {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+    flex-direction: row;
+    gap: 10px;
 
     @include mobile {
       flex-direction: column;
@@ -45,23 +42,17 @@
   }
 
   .title-input {
-    width: 70%;
+    width: 60%;
 
     @include mobile {
       width: 100%;
     }
   }
-
   .date-input {
+    width: 40%;
+
     @include mobile {
       width: 100%;
     }
-  }
-
-  .actions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 20px;
   }
 }

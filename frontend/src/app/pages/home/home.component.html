@@ -11,12 +11,14 @@
           <mat-tab-group class="tab-group">
             <mat-tab label="Em andamento">
               <ng-template matTabContent>
-                <div *ngFor="let task of taskList">
-                  <app-task
-                    [task]="task"
-                    [updateList]="updateTaskList"
-                    [updateChart]="updateChart"
-                  ></app-task>
+                <div class="tab-content-container">
+                  <div *ngFor="let task of taskList">
+                    <app-task
+                      [task]="task"
+                      [updateList]="updateTaskList"
+                      [updateChart]="updateChart"
+                    ></app-task>
+                  </div>
                 </div>
               </ng-template>
             </mat-tab>

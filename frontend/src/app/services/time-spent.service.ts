@@ -28,4 +28,20 @@ export class TimeSpentService {
       body
     );
   }
+
+  deleteComment(id: string): Observable<TimeSpent> {
+    return this.http.delete<TimeSpent>(
+      `http://localhost:3000/time-spent/${id}`
+    );
+  }
+
+  updateComment(
+    id: string,
+    body: CreateTimeSpent
+  ): Observable<CreateTimeSpent> {
+    return this.http.patch<CreateTimeSpent>(
+      `http://localhost:3000/time-spent/${id}`,
+      body
+    );
+  }
 }

@@ -41,9 +41,14 @@ export class TimeSpentService {
   async findAllLogs(id: string) {
     const queryBuilder = this.timeSpentRepository
       .createQueryBuilder('timeSpent')
-      .select(['timeSpent.spentAt', 'timeSpent.comment', 'timeSpent.timeSpent'])
+      .select([
+        'timeSpent.id',
+        'timeSpent.spentAt',
+        'timeSpent.comment',
+        'timeSpent.timeSpent',
+      ])
       .where('timeSpent.taskId = :taskId', { taskId: id })
-      .orderBy('timeSpent.spentAt', 'ASC');
+      .orderBy('timeSpent.spentAt', 'DESC');
 
     return queryBuilder.getRawMany();
   }

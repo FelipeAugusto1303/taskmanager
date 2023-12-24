@@ -37,14 +37,14 @@ export class TimeSpentController {
     type: TaskHour,
     isArray: true,
   })
-  @Get('/hours/:id')
-  findHours(@Param('id') id: string) {
+  @Get('/hours/:taskId')
+  findHours(@Param('taskId') id: string) {
     return this.timeSpentService.findHours(id);
   }
 
-  @Get('/logs/:id')
-  findAllLogs(@Param('id') id: string){
-    return this.timeSpentService.findAllLogs(id)
+  @Get('/logs/:taskId')
+  findAllLogs(@Param('taskId') id: string) {
+    return this.timeSpentService.findAllLogs(id);
   }
 
   @ApiResponse({ status: 400, description: 'Bad request' })

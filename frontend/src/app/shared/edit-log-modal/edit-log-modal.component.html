@@ -1,25 +1,27 @@
-<div class="form-card">
-  <h2>Edite a tarefa</h2>
+<div class="register-log-card">
+  <h2>Edite suas horas trabalhadas</h2>
   <form>
     <div class="fields-container-column">
       <div class="fields-container-row">
         <mat-form-field class="title-input" appearance="outline">
-          <mat-label>Titulo</mat-label>
+          <mat-label>Horas trabalhadas</mat-label>
           <input
             class="title-input"
             matInput
-            placeholder="Digite o titulo da tarefa"
-            name="title"
-            [(ngModel)]="tempTask.title"
+            placeholder="Digite o número de horas trabalhadas"
+            name="hour"
+            [(ngModel)]="hour"
           />
         </mat-form-field>
         <mat-form-field class="date-input" appearance="outline">
-          <mat-label>Data de vencimento</mat-label>
+          <mat-label>Data do registro</mat-label>
           <input
             matInput
             [matDatepicker]="picker"
+            (dateInput)="addEvent($event)"
+            (dateChange)="addEvent($event)"
             name="date"
-            [(ngModel)]="selectedDate"
+            [(ngModel)]="date"
           />
           <mat-datepicker-toggle
             matSuffix
@@ -30,17 +32,17 @@
       </div>
 
       <mat-form-field appearance="outline" class="description-textarea">
-        <mat-label>Descrição</mat-label>
+        <mat-label>Descreva a sua atividade</mat-label>
         <textarea
           matInput
-          placeholder="Descreva a atividade."
-          name="description"
-          [(ngModel)]="tempTask.description"
+          placeholder="Descreva a sua atividade aqui."
+          name="comment"
+          [(ngModel)]="comment"
         ></textarea>
       </mat-form-field>
       <div class="actions">
-        <button (click)="updateTask()" mat-raised-button color="primary">
-          Editar tarefa
+        <button (click)="editLogRegister()" mat-raised-button color="primary">
+          Salvar
         </button>
         <button (click)="closeDialog()" mat-raised-button color="warn">
           Cancelar

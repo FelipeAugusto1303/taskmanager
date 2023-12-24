@@ -9,4 +9,12 @@
   mat-card-subtitle {
     font-size: 12px;
   }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+  }
 }

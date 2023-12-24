@@ -3,17 +3,15 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
-import * as moment from 'moment';
-import { Moment } from 'moment';
-import { CreateTimeSpent } from 'src/app/interfaces/timeSpent';
+import { CreateTimeSpent, TimeSpent } from 'src/app/interfaces/timeSpent';
 import { TimeSpentService } from 'src/app/services/time-spent.service';
 
 @Component({
-  selector: 'app-register-log-modal',
-  templateUrl: './register-log-modal.component.html',
-  styleUrls: ['./register-log-modal.component.scss'],
+  selector: 'app-edit-log-modal',
+  templateUrl: './edit-log-modal.component.html',
+  styleUrls: ['./edit-log-modal.component.scss'],
 })
-export class RegisterLogModalComponent implements OnInit {
+export class EditLogModalComponent implements OnInit {
   hour: string = '';
   comment: string = '';
   id: string;
@@ -21,24 +19,27 @@ export class RegisterLogModalComponent implements OnInit {
   date: Date | any = new Date();
 
   constructor(
-    public dialogRef: MatDialogRef<RegisterLogModalComponent>,
-    private service: TimeSpentService,
+    public dialogRef: MatDialogRef<EditLogModalComponent>,
     private snackBar: MatSnackBar,
-    @Inject(MAT_DIALOG_DATA) public data: string
+    private service: TimeSpentService,
+    @Inject(MAT_DIALOG_DATA) public data: TimeSpent
   ) {
-    this.id = data;
+    this.id = data.timeSpent_id;
+    this.hour = String(data.timeSpent_timeSpent);
+    this.comment = data.timeSpent_comment;
+    this.date = new Date(data.timeSpent_spentAt);
+    this.date.setDate(this.date.getDate() + 1);
   }
 
   ngOnInit(): void {}
 
-  createLogRegister() {
+  editLogRegister() {
     const body: CreateTimeSpent = {
-      task: this.id,
       timeSpent: parseInt(this.hour),
       comment: this.comment,
       spentAt: this.date,
     };
-    this.service.createTimeSpent(body).subscribe(
+    this.service.updateComment(this.id, body).subscribe(
       () => {
         this.dialogRef.close();
       },

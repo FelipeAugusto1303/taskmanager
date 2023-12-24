@@ -1,8 +1,33 @@
+@mixin mobile {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin smallDesktop {
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    @content;
+  }
+}
+
 .app-home {
   display: block;
   margin: 90px auto;
   max-width: 1048px;
   width: 90%;
+  @include mobile {
+    width: 100%;
+  }
+
+  @include tablet {
+    width: 100%;
+  }
 }
 
 .task-process-container {
@@ -10,6 +35,29 @@
   flex-direction: row;
   justify-content: space-between;
   gap: 80px;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  @include tablet {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  app-form-create-task {
+    @include mobile {
+      width: 95%;
+      display: flex;
+    }
+    @include tablet {
+      display: flex;
+      width: 90%;
+    }
+  }
 }
 
 .task-container {
@@ -23,14 +71,21 @@
   margin-bottom: 20px;
   padding: 20px 0;
 
+  @include mobile {
+    width: 95%;
+  }
+
+  @include tablet {
+    width: 90%;
+  }
+
   .task-container-title {
     width: 90%;
     display: flex;
   }
 
   .task-scroll {
-    max-height: 700px;
-    overflow-y: auto;
+    height: 400px;
     display: block;
     width: 100%;
     padding: 10px 0;
@@ -45,6 +100,11 @@
         margin: 10px;
         .tab {
           margin-bottom: 100px;
+        }
+
+        .tab-content-container {
+          height: 360px;
+          overflow-y: auto;
         }
       }
     }
@@ -66,4 +126,14 @@
   background-color: #e5dcd0;
   border-radius: 12px;
   padding: 10px;
+
+  @include mobile {
+    width: 90%;
+    margin-left: 10px;
+  }
+
+  @include tablet {
+    width: 88%;
+    margin-left: 35px;
+  }
 }

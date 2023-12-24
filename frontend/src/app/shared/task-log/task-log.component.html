@@ -1,7 +1,7 @@
 <div class="app-task-log">
   <div class="task-log-container">
     <div *ngFor="let log of logs">
-      <app-task-comment [log]="log"></app-task-comment>
+      <app-task-comment [log]="log" [updateLog]="updateLog"></app-task-comment>
     </div>
   </div>
   <button (click)="openDialog()" mat-raised-button color="accent">

@@ -30,6 +30,22 @@ export class TaskLogComponent implements OnInit {
     }
   }
 
+  updateLog = () => {
+    this.getLog();
+  };
+
+  private getLog() {
+    if (this.updateChart) {
+      this.updateChart();
+    }
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.service.getAllLogsById(id).subscribe((logs) => {
+        this.logs = logs;
+      });
+    }
+  }
+
   openDialog() {
     const dialogRef = this.dialog.open(RegisterLogModalComponent, {
       width: '50%',

@@ -3,6 +3,7 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import * as moment from 'moment';
 import { Task } from '../../interfaces/task';
 import { TaskService } from 'src/app/services/task.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-form-create-task',
@@ -20,7 +21,7 @@ export class FormCreateTaskComponent implements OnInit {
 
   date: moment.Moment | null = null;
 
-  constructor(private service: TaskService) {}
+  constructor(private service: TaskService, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {}
 
@@ -31,16 +32,34 @@ export class FormCreateTaskComponent implements OnInit {
   }
 
   createTask() {
-    this.service.createTask(this.task).subscribe(() => {
-      if (this.updateList) {
-        this.updateList();
+    this.service.createTask(this.task).subscribe(
+      () => {
+        if (this.updateList) {
+          this.updateList();
+        }
+        this.task = {
+          title: '',
+          description: '',
+          dueDate: '',
+        };
+        this.date = null;
+      },
+      (error) => {
+        let message = '';
+        if (error.status === 400) {
+          message =
+            'Informações incorretas! Ajuste os dados ou entre com outras informações.';
+        }
+        if (error.status === 500) {
+          message = 'Ocorreu um erro no servidor!';
+        }
+
+        this.snackBar.open(message, 'OK', {
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          duration: 3000,
+        });
       }
-      this.task = {
-        title: '',
-        description: '',
-        dueDate: '',
-      };
-      this.date = null;
-    });
+    );
   }
 }

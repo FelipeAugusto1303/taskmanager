@@ -1,3 +1,21 @@
+@mixin mobile {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin smallDesktop {
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    @content;
+  }
+}
+
 .app-task-log {
   width: 100%;
   display: flex;
@@ -8,6 +26,19 @@
   padding: 10px;
   height: 700px;
   border-radius: 12px;
+
+  @include mobile {
+    height: 500px;
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  button {
+    @include mobile {
+      width: 90%;
+      margin-top: 15px;
+    }
+  }
 
   .task-log-container {
     display: block;

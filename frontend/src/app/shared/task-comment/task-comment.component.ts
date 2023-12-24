@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { TimeSpent } from 'src/app/interfaces/timeSpent';
+import { TimeSpentService } from 'src/app/services/time-spent.service';
+import { EditLogModalComponent } from '../edit-log-modal/edit-log-modal.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-task-comment',
@@ -8,6 +12,7 @@ import { TimeSpent } from 'src/app/interfaces/timeSpent';
 })
 export class TaskCommentComponent implements OnInit {
   @Input() log: TimeSpent = {
+    timeSpent_id: '',
     timeSpent_comment: '',
     timeSpent_spentAt: '',
     timeSpent_timeSpent: 0,
@@ -16,7 +21,13 @@ export class TaskCommentComponent implements OnInit {
   hourComment: string = '';
   dateComment: string = '';
 
-  constructor() {}
+  @Input() updateLog: Function | undefined;
+
+  constructor(
+    private service: TimeSpentService,
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     if (this.log && this.log.timeSpent_timeSpent <= 1) {
@@ -36,5 +47,43 @@ export class TaskCommentComponent implements OnInit {
         this.log.timeSpent_spentAt
       ).getFullYear()}`;
     }
+  }
+
+  deleteComment() {
+    console.log('entrei');
+    this.service.deleteComment(this.log.timeSpent_id).subscribe(
+      () => {
+        if (this.updateLog) {
+          this.updateLog();
+        }
+      },
+      (error) => {
+        let message = '';
+        if (error.status === 404) {
+          message = 'Registro não encontrado! Verifique as informações';
+        }
+        if (error.status === 500) {
+          message = 'Ocorreu um erro no servidor!';
+        }
+
+        this.snackBar.open(message, 'OK', {
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          duration: 3000,
+        });
+      }
+    );
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(EditLogModalComponent, {
+      width: '100%',
+      data: this.log,
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      if (this.updateLog) {
+        this.updateLog();
+      }
+    });
   }
 }
