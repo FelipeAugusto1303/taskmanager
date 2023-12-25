@@ -14,7 +14,7 @@
 
 ## 🧰 Funcionalidades específicas
 
-[(Back to top)](#table-of-contents)
+[(Back to top)](#%C3%ADndice)
 
 - Criação, listagem, atualização e exclusão de tarefas com os seguintes campos: título, descrição, data de vencimento.
 - Conclusão de uma tarefa salvando a data/hora do encerramento.
@@ -24,7 +24,7 @@
 
 ## 🚀 Tecnológias utilizadas
 
-[(Back to top)](#table-of-contents)
+[(Back to top)](#%C3%ADndice)
 
 - [NestJS](https://nestjs.com/) - Na construção na API REST.
 - [TypeORM](https://typeorm.io/) - Na integração com banco de dados PostgreSQL.
@@ -36,7 +36,7 @@
 
 ## :computer: Pré-requisitos para instalação
 
-[(Back to top)](#table-of-contents)
+[(Back to top)](#%C3%ADndice)
 
 - Git
   Acesse o site oficial do [Git](https://git-scm.com) e baixe a versão mais atual para seu sistema operacional.
@@ -63,7 +63,7 @@ Com os pré-requisitos instalados, pode seguir com a instalação da aplicação
 
 ## :green_book: Instruções para instalação e migração do banco de dados
 
-[(Back to top)](#table-of-contents)
+[(Back to top)](#%C3%ADndice)
 
 1. Abra seu terminal e execute o comando.
 
@@ -83,7 +83,7 @@ e execute o comando
 docker compose up -d --build
 ```
 
-3. Espere a finalização da construção dos containers para a realização das migrações do banco de dados. :exclamation: :exclamation: :exclamation: Este é um passo importante para o correto funcionamento da aplicação. Vá até seu terminal e digite os comandos abaixo.
+3. Espere a finalização da construção dos containers para a realização das migrações do banco de dados. :exclamation: :exclamation: :exclamation: Este é um passo importante para correto funcionamento da aplicação. Ao final, no terminal, digite o comando.
 
 ```bash
 docker exec -it taskmanager_backend sh
@@ -104,7 +104,7 @@ exit
 
 ## 💡 Exemplo de uso
 
-[(Back to top)](#table-of-contents)
+[(Back to top)](#%C3%ADndice)
 
 1. Criação de tarefa
 2. Atualização de tarefa
@@ -117,7 +117,7 @@ exit
 
 ## :floppy_disk: Visualização dos dados aramazenados no PostegreSql
 
-[(Back to top)](#table-of-contents)
+[(Back to top)](#%C3%ADndice)
 
 Um container do pgAdmin foi criado para visualizar os dados armazenados da aplicação, vá até seu navegar e acesse [localhost:8000](http://localhost:8000), ao acessar o link você será redirecionado para a pagina de login, para acessar utilize as credenciais abaixo.
 
@@ -138,4 +138,4 @@ ao clicar em salvar a sua nova conexão aparecerá na coluna ao lado esquerdo, c
 
 ## :spades: Autor
 
-[(Back to top)](#table-of-contents)
+[(Back to top)](#%C3%ADndice)
