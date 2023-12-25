@@ -90,4 +90,14 @@ Um container do pgAdmin foi criado para visualizar os dados armazenados da aplic
 > Email/Username: admin@admin.com <br>
 > Password: admin
 
+Ao acessar, clique no botão nova conexão para criar uma conexão com o banco de dado postgres:
+
+1. Na primeira aba (General), coloque o nome da sua conexão
+2. Na segunda aba (Conexão), coloque as seguintes informações:
+   > Host name/ address: db <br>
+   > Port: 5432 <br>
+   > Maintence database: postgres <br>
+   > Username: postgres <br>
+   > Password: felipe1303
+
 ## Autor
