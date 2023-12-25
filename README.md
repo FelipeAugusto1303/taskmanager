@@ -79,9 +79,7 @@ e execute o comando
 docker compose up -d --build
 ```
 
-3. Espere a finalização da construção dos containers para a realização das migrações do banco de dados.
-   :exclamation: Este é um passo importante para correto funcionamento da aplicação.:exclamation:
-   Ao final, no terminal, digite o comando.
+3. Espere a finalização da construção dos containers para a realização das migrações do banco de dados.<br>:exclamation: Este é um passo importante para correto funcionamento da aplicação. :exclamation: <br> Ao final, no terminal, digite o comando.
 
 ```bash
 docker exec -it taskmanager_backend sh
