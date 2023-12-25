@@ -87,7 +87,7 @@ exit
 
 Um container do pgAdmin foi criado para visualizar os dados armazenados da aplicação, vá até seu navegar e acesse [localhost:8000](http://localhost:8000), ao acessar o link você será redirecionado para a pagina de login, para acessar utilize as credenciais abaixo.
 
-> Email/Username: admin@admin.com
-> password: admin
+> Email/Username: admin@admin.com <br>
+> Password: admin
 
 ## Autor
