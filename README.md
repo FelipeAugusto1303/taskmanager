@@ -48,7 +48,7 @@ git -v
 deve aparecer a versão do git instalada em seu computador.
 
 - Docker: Acesse o site oficial do [Docker]() e baixe a versão mais atual para seu sistema operacional.
-  Para verificar se o docker e o docker-compose estão funcional em sua máquina, abra um terminal e digite os seguintes comandos.
+  Para verificar se o docker e o docker-compose estão funcionais em sua máquina, abra um terminal e digite os seguintes comandos.
 
 ```bash
 docker -v
