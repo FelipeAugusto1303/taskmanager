@@ -48,7 +48,7 @@ git clone https://github.com/FelipeAugusto1303/taskmanager.git
 2. Acesse a pasta do projeto com o comando abaixo e execute o docker para construir os containers
 
 ```bash
-cd taskmanager
+$ cd taskmanager
 docker-compose up -d --build
 ```
 
@@ -62,7 +62,7 @@ docker exec -it taskmanager_backend sh
 O comando acima permite você acessar o container do backend da aplicação. Dentro do container execute os seguintes comandos.
 
 ```bash
-npm run build
+'#' npm run build
 npx typeorm migration:run -d dist/database/orm-cli-config.js
 ```
 
@@ -84,5 +84,10 @@ exit
 8. Gráfico de tarefas concluídas por dia
 
 ## Visualização dos dados aramazenados no PostegreSql
+
+Um container do pgAdmin foi criado para visualizar os dados armazenados da aplicação, vá até seu navegar e acesse [localhost:8000](http://localhost:8000), ao acessar o link você será redirecionado para a pagina de login, para acessar utilize as credenciais abaixo.
+
+> Email/Username: admin@admin.com
+> password: admin
 
 ## Autor
