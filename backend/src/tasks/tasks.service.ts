@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateTaskDTO } from './dto/create-task.dto';
 import { UpdateTaskDTO } from './dto/update-task.dto';
-import { TimeSpent } from 'src/time-spent/entities/timeSpent.entity';
+import { TimeSpent } from '../time-spent/entities/timeSpent.entity';
 
 type TaskLog = {
   dia: string;
@@ -13,12 +13,10 @@ type TaskLog = {
 
 @Injectable()
 export class TasksService {
-  constructor(
-    @InjectRepository(Tasks)
-    private readonly taskRepository: Repository<Tasks>,
-    @InjectRepository(TimeSpent)
-    private readonly timeSpentRepository: Repository<TimeSpent>,
-  ) {}
+  @InjectRepository(Tasks)
+  private readonly taskRepository: Repository<Tasks>;
+  @InjectRepository(TimeSpent)
+  private readonly timeSpentRepository: Repository<TimeSpent>;
 
   async findAll() {
     return this.taskRepository.find();

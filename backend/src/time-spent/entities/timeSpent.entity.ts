@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { randomUUID } from 'crypto';
-import { Tasks } from 'src/tasks/entities/tasks.entity';
+import { Tasks } from '../../tasks/entities/tasks.entity';
 import {
   BeforeInsert,
   Column,
@@ -33,6 +33,13 @@ export class TimeSpent {
     }
     this.id = randomUUID();
   }
+
+  constructor(timeSpent?: Partial<TimeSpent>) {
+    this.id = timeSpent?.id;
+    this.comment = timeSpent?.comment;
+    this.timeSpent = timeSpent?.timeSpent;
+    this.spentAt = timeSpent?.spentAt;
+  }
 }
 
 export class TaskHour {
@@ -41,4 +48,9 @@ export class TaskHour {
 
   @ApiProperty()
   hours: number;
+
+  constructor(taskHour?: Partial<TaskHour>) {
+    this.spentAt = taskHour?.spentAt;
+    this.hours = taskHour?.hours;
+  }
 }

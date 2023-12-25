@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsDateString, IsNumber, IsString } from 'class-validator';
-import { IsNotEmptyString } from 'src/common/validators/not-empty-string.validator';
-import { Tasks } from 'src/tasks/entities/tasks.entity';
+import { IsNotEmptyString } from '../../common/validators/not-empty-string.validator';
+import { Tasks } from '../../tasks/entities/tasks.entity';
 
 export class CreateTimeSpentDTO {
   @ApiProperty({
