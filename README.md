@@ -116,7 +116,7 @@ exit
 
 [(Back to top)](#%C3%ADndice)
 
-Um container do pgAdmin foi criado para visualizar os dados armazenados da aplicação, em um navegador acesse [localhost:8000](http://localhost:8000). A execução do link redireciona para a pagina de login. Para acessar utilize as credenciais abaixo.
+Um container do pgAdmin foi criado para visualizar os dados armazenados da aplicação. Em um navegador acesse [localhost:8000](http://localhost:8000). A execução do link redireciona para a pagina de login. Para acessar, utilize as credenciais abaixo.
 
 > Email/Username: admin@admin.com <br>
 > Password: admin
@@ -131,7 +131,7 @@ Ao acessar, clique no botão adicionar nova conexão para criar uma conexão com
    > Username: postgres <br>
    > Password: felipe1303
 
-Ao clicar em salvar a nova conexão aparecerá na coluna ao lado esquerdo, clique e acesse o database postgres para visualizar os dados.
+Ao clicar em salvar, uma nova conexão aparecerá na coluna ao lado esquerdo. Clique e acesse o database postgres para visualizar os dados.
 
 ## :spades: Autor
 
