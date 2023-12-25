@@ -13,7 +13,7 @@ import { TimeSpentService } from './time-spent.service';
 import { CreateTimeSpentDTO } from './dto/create-time-spent.dto';
 import { UpdateTimeSpentDTO } from './dto/update-time-spent.dto';
 import { ApiOkResponse, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { TaskHour } from './entities/timeSpent.entity';
+import { TaskHour, TimeSpent } from './entities/timeSpent.entity';
 
 @ApiTags('TimeSpent')
 @Controller('time-spent')
@@ -42,6 +42,12 @@ export class TimeSpentController {
     return this.timeSpentService.findHours(id);
   }
 
+  @ApiOkResponse({
+    description:
+      'Retorna a lista de horas registradas em uma tarefa especifica, com o dia do registro, commentário e quantidade de horas trabalhadas',
+    type: TimeSpent,
+    isArray: true,
+  })
   @Get('/logs/:taskId')
   findAllLogs(@Param('taskId') id: string) {
     return this.timeSpentService.findAllLogs(id);
