@@ -38,8 +38,7 @@
 
 [(Back to top)](#%C3%ADndice)
 
-- Git
-  Acesse o site oficial do [Git](https://git-scm.com) e baixe a versão mais atual para seu sistema operacional.
+- Git: Acesse o site oficial do [Git](https://git-scm.com) e baixe a versão mais atual para seu sistema operacional.
   Para verificar se o git foi instalado corretamente abra um terminal e digite o seguinte comando.
 
 ```bash
@@ -48,8 +47,7 @@ git -v
 
 deve aparecer a versão do git instalada em seu computador.
 
-- Docker
-  Acesse o site oficial do [Docker]() e baixe a versão mais atual para seu sistema operacional.
+- Docker: Acesse o site oficial do [Docker]() e baixe a versão mais atual para seu sistema operacional.
   Para verificar se o docker e o docker-compose estão funcional em sua máquina, abra um terminal e digite os seguintes comandos.
 
 ```bash
