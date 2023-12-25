@@ -2,7 +2,7 @@
 
 > Este aplicativo de gerenciamento de tarefas permite aos usuários criar e gerenciar tarefas e registrar logs de horas trabalhadas.
 
-## Table of contents
+## Índice
 
 - [🧰 Funcionalidades específicas](#-funcionalidades-espec%C3%ADficas)
 - [🚀 Tecnológias utilizadas](#-tecnol%C3%B3gias-utilizadas)
@@ -29,7 +29,7 @@
 - [NestJS](https://nestjs.com/) - Na construção na API REST.
 - [TypeORM](https://typeorm.io/) - Na integração com banco de dados PostgreSQL.
 - [Angular14](https://angular.io/) e [Angular Material](https://material.angular.io/) - Na construção da interface de usuário.
-- [PostgreSql](https://www.postgresql.org) - Na persistência de dados
+- [PostgreSql](https://www.postgresql.org) - Utilizado para persistir os dados da aplicação.
 - [Typescript](https://www.typescriptlang.org) - A linguagem principal utilizada na implementação das funcionalidades.
 - [Docker](https://www.docker.com) - Na criação de containers de cada aplicação utilizada nesse projeto.
 - [Docker-compose](https://docs.docker.com/compose/) - Orquestrador de containers utilizado para gerenciar todos os microserviços implementados.
@@ -39,22 +39,47 @@
 [(Back to top)](#table-of-contents)
 
 - Git
+  Acesse o site oficial do [Git](https://git-scm.com) e baixe a versão mais atual para seu sistema operacional.
+  Para verificar se o git foi instalado corretamente abra um terminal e digite o seguinte comando.
+
+```bash
+git -v
+```
+
+deve aparecer a versão do git instalada em seu computador.
+
 - Docker
+  Acesse o site oficial do [Docker]() e baixe a versão mais atual para seu sistema operacional.
+  Para verificar se o docker e o docker-compose estão funcional em sua máquina, abra um terminal e digite os seguintes comandos.
+
+```bash
+docker -v
+docker compose -h
+```
+
+O primeiro comando irá mostrar a versão do docker instalada em sua máquina, o segundo mostrará uma lista de opções para serem utilizadas com o docker-compose.
+
+Com os pré-requisitos instalados, pode seguir com a instalação da aplicação.
 
 ## :green_book: Instruções para instalação e migração do banco de dados
 
 [(Back to top)](#table-of-contents)
 
-1. Abra seu terminal de execute o comando.
+1. Abra seu terminal e execute o comando.
 
 ```bash
 git clone https://github.com/FelipeAugusto1303/taskmanager.git
 ```
 
-2. Acesse a pasta do projeto com o comando abaixo e execute o docker compose para construir os containers e rodar a aplicação
+2. Para construir os containers e rodar a aplicação, acesse a pasta do projeto com o comando
 
 ```bash
 $ cd taskmanager
+```
+
+e execute o comando
+
+```bash
 docker compose up -d --build
 ```
 
