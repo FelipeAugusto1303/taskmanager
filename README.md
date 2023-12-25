@@ -6,11 +6,11 @@
 
 - [🧰 Funcionalidades específicas](#-funcionalidades-espec%C3%ADficas)
 - [🚀 Tecnológias utilizadas](#-tecnol%C3%B3gias-utilizadas)
-- [:computer: Pré-requisitos para instalação]()
-- [:green_book: Instruções para instalação e migração do banco de dados](#instru%C3%A7%C3%B5es-para-instala%C3%A7%C3%A3o-e-migra%C3%A7%C3%A3o-do-banco-de-dados)
-- [💡 Exemplo de uso](#exemplo-de-uso)
-- [:floppy_disk: Visualização dos dados aramazenados no PostegreSql](#development-setup)
-- [:spades: Autor](#release-history)
+- [:computer: Pré-requisitos para instalação](#computer-pr%C3%A9-requisitos-para-instala%C3%A7%C3%A3o)
+- [:green_book: Instruções para instalação e migração do banco de dados](#green_book-instru%C3%A7%C3%B5es-para-instala%C3%A7%C3%A3o-e-migra%C3%A7%C3%A3o-do-banco-de-dados)
+- [💡 Exemplo de uso](#-exemplo-de-uso)
+- [:floppy_disk: Visualização dos dados aramazenados no PostegreSql](#floppy_disk-visualiza%C3%A7%C3%A3o-dos-dados-aramazenados-no-postegresql)
+- [:spades: Autor](#spades-autor)
 
 ## 🧰 Funcionalidades específicas
 
