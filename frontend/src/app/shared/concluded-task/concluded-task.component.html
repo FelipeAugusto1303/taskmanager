@@ -17,10 +17,15 @@
     </mat-card-content>
     <mat-card-actions class="actions">
       <button (click)="openTask()" mat-button color="primary">
-        Abrir tarefa
+        Visualizar horas
       </button>
 
-      <button (click)="deleteTask()" mat-icon-button color="warn">
+      <button
+        (click)="deleteTask()"
+        mat-icon-button
+        color="warn"
+        matTooltip="Deletar tarefa"
+      >
         <mat-icon>delete</mat-icon>
       </button>
     </mat-card-actions>

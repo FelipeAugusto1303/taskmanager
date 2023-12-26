@@ -12,7 +12,16 @@ import { FormCreateTaskComponent } from './shared/form-create-task/form-create-t
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
+import {
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE,
+  MatNativeDateModule,
+} from '@angular/material/core';
+import {
+  MAT_MOMENT_DATE_FORMATS,
+  MomentDateModule,
+} from '@angular/material-moment-adapter';
 import { MatButtonModule } from '@angular/material/button';
 import { TaskComponent } from './shared/task/task.component';
 import { FormsModule } from '@angular/forms';
@@ -29,6 +38,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { ConcludedTaskComponent } from './shared/concluded-task/concluded-task.component';
 import { EditLogModalComponent } from './shared/edit-log-modal/edit-log-modal.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -63,8 +73,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatDialogModule,
     MatTabsModule,
     MatSnackBarModule,
+    MatTooltipModule,
+    MomentDateModule,
   ],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
+    { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

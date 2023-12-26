@@ -4,10 +4,20 @@
     <p>{{ log.timeSpent_comment }}</p>
   </mat-card-content>
   <mat-card-actions class="actions">
-    <button (click)="openDialog()" mat-icon-button color="primary">
+    <button
+      (click)="openDialog()"
+      mat-icon-button
+      color="primary"
+      matTooltip="Editar registro"
+    >
       <mat-icon>edit</mat-icon>
     </button>
-    <button (click)="deleteComment()" mat-icon-button color="warn">
+    <button
+      (click)="deleteComment()"
+      mat-icon-button
+      color="warn"
+      matTooltip="Deletar registro"
+    >
       <mat-icon>delete</mat-icon>
     </button>
   </mat-card-actions>
