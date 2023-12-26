@@ -117,7 +117,7 @@ exit
 6. Registro de horas trabalhadas <br>
    ![Registro de horas trabalhadas](screenshots/imagem6.png)
 7. Visualização de log de horas <br>
-   ![Visualização de log de horas](screenshots/imagem7.png)
+   ![Visualização de log de horas](screenshots/imagem7.png) <br>
    ![Visualização de log de horas](screenshots/imagem7-1.png)
 8. Gráfico de tarefas concluídas por dia <br>
    ![Gráfico de tarefas concluídas por dia](screenshots/imagem8.png)
