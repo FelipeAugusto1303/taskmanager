@@ -42,7 +42,7 @@
   Para verificar se o git foi instalado corretamente abra um terminal e digite o seguinte comando.
 
 ```bash
-git -v
+$ git -v
 ```
 
 deve aparecer a versão do git instalada em seu computador.
@@ -51,8 +51,8 @@ deve aparecer a versão do git instalada em seu computador.
   Para verificar se o docker e o docker-compose estão funcionais em sua máquina, abra um terminal e digite os seguintes comandos.
 
 ```bash
-docker -v
-docker compose -h
+$ docker -v
+$ docker compose -h
 ```
 
 O primeiro comando irá mostrar a versão do docker instalada em sua máquina e o segundo mostrará uma lista de opções para serem utilizadas com o docker-compose.
@@ -64,7 +64,7 @@ O primeiro comando irá mostrar a versão do docker instalada em sua máquina e 
 1. Abra o terminal e execute o comando.
 
 ```bash
-git clone https://github.com/FelipeAugusto1303/taskmanager.git
+$ git clone https://github.com/FelipeAugusto1303/taskmanager.git
 ```
 
 2. Para construir os containers e rodar a aplicação, acesse a pasta do projeto com o comando
@@ -76,27 +76,27 @@ $ cd taskmanager
 e execute o comando
 
 ```bash
-docker compose up -d --build
+$ docker compose up -d --build
 ```
 
 3. Espere a finalização da construção dos containers para a realização das migrações do banco de dados.<br>:exclamation: Este é um passo importante para correto funcionamento da aplicação. :exclamation: <br> Ao final, no terminal, digite o comando.
 
 ```bash
-docker exec -it taskmanager_backend sh
+$ docker exec -it taskmanager_backend sh
 ```
 
 Este comando permite acessar o container do backend da aplicação.
 Dentro do container execute os seguintes comandos.
 
 ```bash
-npm run build
-npx typeorm migration:run -d dist/database/orm-cli-config.js
+$ npm run build
+$ npx typeorm migration:run -d dist/database/orm-cli-config.js
 ```
 
 Ao finalizar as migrações, saia do container digitando o comando
 
 ```bash
-exit
+$ exit
 ```
 
 ## 💡 Exemplo de uso
