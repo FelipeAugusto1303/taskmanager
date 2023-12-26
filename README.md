@@ -104,6 +104,7 @@ exit
 [(Back to top)](#%C3%ADndice)
 
 1. Criação de tarefa
+   ![Criação de tarefa](imagem1.png)
 2. Atualização de tarefa
 3. Listagem de tarefas
 4. Exclusão de tarefa
