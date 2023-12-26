@@ -146,3 +146,5 @@ Ao clicar em salvar, uma nova conexão aparecerá na coluna ao lado esquerdo. Cl
 ## :spades: Autor
 
 [(Back to top)](#%C3%ADndice)
+
+[Felipe Guimarães](https://www.linkedin.com/in/fasguimaraes/) Engenheiro da computação | Desenvolvedor FullStack Senior
