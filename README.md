@@ -104,9 +104,11 @@ exit
 [(Back to top)](#%C3%ADndice)
 
 1. Criação de tarefa
-   ![Criação de tarefa](imagem1.png)
+   ![Criação de tarefa](screenshots/imagem1.png)
 2. Atualização de tarefa
+   ![Criação de tarefa](screenshots/imagem2.png)
 3. Listagem de tarefas
+   ![Criação de tarefa](screenshots/imagem3.png)
 4. Exclusão de tarefa
 5. Conclusão de tarefa
 6. Registro de horas trabalhadas
