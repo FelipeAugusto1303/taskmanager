@@ -103,6 +103,8 @@ $ exit
 
 [(Back to top)](#%C3%ADndice)
 
+> Para acessar a página princiapl do aplicativo digite [http://localhost:4200](http://localhost:4200)
+
 1. Criação de tarefa <br>
    ![Criação de tarefa](screenshots/imagem1.png)
 2. Atualização de tarefa <br>
