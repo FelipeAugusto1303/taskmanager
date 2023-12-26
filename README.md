@@ -103,17 +103,24 @@ exit
 
 [(Back to top)](#%C3%ADndice)
 
-1. Criação de tarefa
+1. Criação de tarefa <br>
    ![Criação de tarefa](screenshots/imagem1.png)
-2. Atualização de tarefa
-   ![Criação de tarefa](screenshots/imagem2.png)
-3. Listagem de tarefas
-   ![Criação de tarefa](screenshots/imagem3.png)
-4. Exclusão de tarefa
-5. Conclusão de tarefa
-6. Registro de horas trabalhadas
-7. Visualização de log de horas
-8. Gráfico de tarefas concluídas por dia
+2. Atualização de tarefa <br>
+   ![Atualização de tarefa](screenshots/imagem2.png)
+3. Listagem de tarefas <br>
+   ![Listagem de tarefas](screenshots/imagem3.png)
+4. Exclusão de tarefa <br>
+   ![Exclusão de tarefa](screenshots/imagem4.png)
+5. Conclusão de tarefa <br>
+   ![Conclusão de tarefa](screenshots/imagem5.png) <br>
+   ![Conclusão de tarefa](screenshots/imagem5-1.png)
+6. Registro de horas trabalhadas <br>
+   ![Registro de horas trabalhadas](screenshots/imagem6.png)
+7. Visualização de log de horas <br>
+   ![Visualização de log de horas](screenshots/imagem7.png)
+   ![Visualização de log de horas](screenshots/imagem7-1.png)
+8. Gráfico de tarefas concluídas por dia <br>
+   ![Gráfico de tarefas concluídas por dia](screenshots/imagem8.png)
 
 ## :floppy_disk: Visualização dos dados armazenados no PostegreSql
 
