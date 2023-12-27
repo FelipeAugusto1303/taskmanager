@@ -27,7 +27,7 @@ export class TasksService {
       .createQueryBuilder('task')
       .select([
         "DATE_TRUNC('day', task.concludedAt) as day",
-        'COUNT(*) as total_hours',
+        'COUNT(*) as total_tasks',
       ])
       .where('task.concluded = :concluded', { concluded: true })
       .groupBy('day')

@@ -9,7 +9,7 @@ export interface Task {
 
 export interface ConcludedTask {
   day: string;
-  total_hours: number;
+  total_tasks: number;
 }
 
 export interface HoursTask {

@@ -135,8 +135,8 @@ describe('TaskService', () => {
 
   it('should get total concluded tasks by day', () => {
     const mockConcludedTasks: ConcludedTask[] = [
-      { day: '2023-12-01', total_hours: 5 },
-      { day: '2023-12-02', total_hours: 8 },
+      { day: '2023-12-01', total_tasks: 5 },
+      { day: '2023-12-02', total_tasks: 8 },
     ];
 
     service.getTotalConcludedByDay().subscribe((tasks) => {

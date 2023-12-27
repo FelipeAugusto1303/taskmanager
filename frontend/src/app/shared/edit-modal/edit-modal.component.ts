@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Task } from '../../interfaces/task';
 import { TaskService } from 'src/app/services/task.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-edit-modal',
@@ -10,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./edit-modal.component.scss'],
 })
 export class EditModalComponent implements OnInit {
-  selectedDate: Date;
+  selectedDate: Date | any;
 
   tempTask: Task;
 
@@ -29,9 +30,10 @@ export class EditModalComponent implements OnInit {
   ngOnInit(): void {}
 
   updateTask() {
-    const year = this.selectedDate.getFullYear();
-    const month = String(this.selectedDate.getMonth() + 1).padStart(2, '0');
-    const day = String(this.selectedDate.getDate()).padStart(2, '0');
+    const date = new Date(this.selectedDate);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
 
     const formattedDate = `${year}-${month}-${day}`;
     this.tempTask.dueDate = formattedDate;
@@ -61,5 +63,11 @@ export class EditModalComponent implements OnInit {
 
   closeDialog() {
     this.dialogRef.close();
+  }
+
+  addEvent(event: MatDatepickerInputEvent<Date>) {
+    if (event.value) {
+      this.selectedDate = event.value.toISOString();
+    }
   }
 }

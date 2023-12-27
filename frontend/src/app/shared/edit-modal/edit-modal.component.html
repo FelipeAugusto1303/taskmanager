@@ -18,6 +18,8 @@
           <input
             matInput
             [matDatepicker]="picker"
+            (dateInput)="addEvent($event)"
+            (dateChange)="addEvent($event)"
             name="date"
             [(ngModel)]="selectedDate"
           />
