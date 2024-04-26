@@ -1,0 +1,32 @@
+<div class="request-container">
+  <img
+    src="assets/images/task-logo.png"
+    alt="Logo da aplicação task manager"
+    height="100px"
+  />
+  <p class="request-title">Task Manager</p>
+
+  <form class="request-form" [formGroup]="requestForm" (ngSubmit)="submit()">
+    <p class="info">Digite no campo abaixo o email cadastrado.</p>
+    <mat-form-field class="form-input">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        placeholder="example@email.com"
+        type="email"
+        formControlName="email"
+      />
+    </mat-form-field>
+
+    <button
+      class="submit-button"
+      mat-flat-button
+      type="submit"
+      [disabled]="requestForm.invalid"
+    >
+      Enviar
+    </button>
+  </form>
+
+  <button class="back-button" mat-button routerLink="/login">Voltar</button>
+</div>

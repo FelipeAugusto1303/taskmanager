@@ -1,0 +1,44 @@
+<div class="login-container">
+  <img
+    src="assets/images/task-logo.png"
+    alt="Logo da aplicação task manager"
+    height="100px"
+  />
+  <p class="login-title">Task Manager</p>
+
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="submit()">
+    <mat-form-field class="form-input">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        placeholder="example@email.com"
+        type="email"
+        formControlName="email"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="form-input">
+      <mat-label>Senha</mat-label>
+      <input
+        matInput
+        placeholder="senha"
+        type="password"
+        formControlName="password"
+      />
+    </mat-form-field>
+    <button
+      class="submit-button"
+      mat-flat-button
+      type="submit"
+      [disabled]="loginForm.invalid"
+    >
+      ENTRAR
+    </button>
+  </form>
+  <button class="forgot-button" mat-button (click)="registerUser()">
+    Cadastre-se
+  </button>
+  <button class="forgot-button" mat-button routerLink="/request-reset">
+    Esqueci a senha
+  </button>
+</div>

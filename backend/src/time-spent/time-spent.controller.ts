@@ -8,12 +8,14 @@ import {
   Param,
   Patch,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { TimeSpentService } from './time-spent.service';
 import { CreateTimeSpentDTO } from './dto/create-time-spent.dto';
 import { UpdateTimeSpentDTO } from './dto/update-time-spent.dto';
 import { ApiOkResponse, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { TaskHour, TimeSpent } from './entities/timeSpent.entity';
+import { UserGuard } from 'src/user/user.guard';
 
 @ApiTags('TimeSpent')
 @Controller('time-spent')
@@ -54,12 +56,14 @@ export class TimeSpentController {
   }
 
   @ApiResponse({ status: 400, description: 'Bad request' })
+  @UseGuards(UserGuard)
   @Post()
   create(@Body() createTimeSpentDTO: CreateTimeSpentDTO) {
     return this.timeSpentService.create(createTimeSpentDTO);
   }
 
   @ApiResponse({ status: 404, description: 'Not found' })
+  @UseGuards(UserGuard)
   @Patch(':id')
   update(
     @Param('id') id: string,
@@ -70,6 +74,7 @@ export class TimeSpentController {
 
   @ApiResponse({ status: 404, description: 'Not found' })
   @HttpCode(HttpStatus.NO_CONTENT)
+  @UseGuards(UserGuard)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.timeSpentService.remove(id);

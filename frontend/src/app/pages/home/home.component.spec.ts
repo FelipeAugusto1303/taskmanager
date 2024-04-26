@@ -50,7 +50,7 @@ describe('HomeComponent', () => {
         concluded: true,
       },
     ];
-    const chartData = [{ day: '2023-12-01', total_hours: 5 }];
+    const chartData = [{ day: '2023-12-01', total_tasks: 5 }];
 
     taskServiceSpy.listTasks.and.returnValue(of(tasks));
     taskServiceSpy.getTotalConcludedByDay.and.returnValue(of(chartData));
@@ -90,7 +90,7 @@ describe('HomeComponent', () => {
   });
 
   it('should update chart on updateChart', () => {
-    const chartData = [{ day: '2023-12-01', total_hours: 8 }];
+    const chartData = [{ day: '2023-12-01', total_tasks: 8 }];
 
     taskServiceSpy.getTotalConcludedByDay.and.returnValue(of(chartData));
 

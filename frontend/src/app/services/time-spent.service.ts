@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HoursTask } from '../interfaces/task';
@@ -20,17 +20,33 @@ export class TimeSpentService {
   }
 
   createTimeSpent(body: CreateTimeSpent): Observable<CreateTimeSpent> {
-    return this.http.post<CreateTimeSpent>(`${API}/time-spent`, body);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('authorization'), // Substitua 'token' pelo seu token de autenticação
+    });
+    return this.http.post<CreateTimeSpent>(`${API}/time-spent`, body, {
+      headers,
+    });
   }
 
   deleteComment(id: string): Observable<TimeSpent> {
-    return this.http.delete<TimeSpent>(`${API}/time-spent/${id}`);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('authorization'), // Substitua 'token' pelo seu token de autenticação
+    });
+    return this.http.delete<TimeSpent>(`${API}/time-spent/${id}`, { headers });
   }
 
   updateComment(
     id: string,
     body: CreateTimeSpent
   ): Observable<CreateTimeSpent> {
-    return this.http.patch<CreateTimeSpent>(`${API}/time-spent/${id}`, body);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('authorization'), // Substitua 'token' pelo seu token de autenticação
+    });
+    return this.http.patch<CreateTimeSpent>(`${API}/time-spent/${id}`, body, {
+      headers,
+    });
   }
 }

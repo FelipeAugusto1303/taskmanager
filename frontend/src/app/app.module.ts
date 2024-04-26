@@ -24,7 +24,7 @@ import {
 } from '@angular/material-moment-adapter';
 import { MatButtonModule } from '@angular/material/button';
 import { TaskComponent } from './shared/task/task.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -39,6 +39,10 @@ import { ConcludedTaskComponent } from './shared/concluded-task/concluded-task.c
 import { EditLogModalComponent } from './shared/edit-log-modal/edit-log-modal.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { SendEmailComponent } from './pages/send-email/send-email.component';
+import { ResetAccountComponent } from './pages/reset-account/reset-account.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +59,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     RegisterLogModalComponent,
     ConcludedTaskComponent,
     EditLogModalComponent,
+    LoginComponent,
+    RegisterComponent,
+    SendEmailComponent,
+    ResetAccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,6 +83,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSnackBarModule,
     MatTooltipModule,
     MomentDateModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },

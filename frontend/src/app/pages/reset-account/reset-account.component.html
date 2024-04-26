@@ -1,0 +1,32 @@
+<div class="account-container">
+  <img
+    src="assets/images/task-logo.png"
+    alt="Logo da aplicação task manager"
+    height="100px"
+  />
+  <p class="account-title">Task Manager</p>
+
+  <form class="account-form" [formGroup]="accountForm" (ngSubmit)="submit()">
+    <mat-form-field class="form-input">
+      <mat-label>Nova senha</mat-label>
+      <input matInput type="password" formControlName="password" />
+    </mat-form-field>
+
+    <mat-form-field class="form-input">
+      <mat-label>Codigo de confirmação</mat-label>
+      <input matInput type="text" formControlName="code" />
+    </mat-form-field>
+    <button
+      class="submit-button"
+      mat-flat-button
+      type="submit"
+      [disabled]="accountForm.invalid"
+    >
+      Enviar
+    </button>
+  </form>
+
+  <button class="back-button" mat-button routerLink="/login">
+    Voltar ao início
+  </button>
+</div>

@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Tasks } from 'src/tasks/entities/tasks.entity';
 import { TimeSpent } from 'src/time-spent/entities/timeSpent.entity';
+import { User } from 'src/user/entities/user.entity';
 import { DataSourceOptions } from 'typeorm';
 
 export const dataSourceOptions: DataSourceOptions = {
@@ -11,7 +12,7 @@ export const dataSourceOptions: DataSourceOptions = {
   username: 'postgres',
   password: 'felipe1303',
   database: 'postgres',
-  entities: [Tasks, TimeSpent],
+  entities: [Tasks, TimeSpent, User],
   synchronize: false,
 };
 

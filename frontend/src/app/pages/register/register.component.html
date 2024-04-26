@@ -1,0 +1,48 @@
+<div class="register-container">
+  <img
+    src="assets/images/task-logo.png"
+    alt="Logo da aplicação task manager"
+    height="100px"
+  />
+  <p class="register-title">Task Manager</p>
+
+  <form class="register-form" [formGroup]="registerForm" (ngSubmit)="submit()">
+    <mat-form-field class="form-input">
+      <mat-label>Nome Completo</mat-label>
+      <input
+        matInput
+        placeholder="Felipe Guimaraes"
+        type="text"
+        formControlName="fullname"
+      />
+    </mat-form-field>
+    <mat-form-field class="form-input">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        placeholder="example@email.com"
+        type="email"
+        formControlName="email"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="form-input">
+      <mat-label>Senha</mat-label>
+      <input
+        matInput
+        placeholder="senha"
+        type="password"
+        formControlName="password"
+      />
+    </mat-form-field>
+    <button
+      class="submit-button"
+      mat-flat-button
+      type="submit"
+      [disabled]="registerForm.invalid"
+    >
+      Cadastrar
+    </button>
+  </form>
+  <button class="back-button" mat-button (click)="backToLogin()">Voltar</button>
+</div>
