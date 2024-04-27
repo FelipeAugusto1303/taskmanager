@@ -31,8 +31,8 @@ export class UserService {
     this.transporter = nodemailer.createTransport({
       SES: new aws.SES({
         apiVersion: '2012-10-17',
-        accessKeyId: 'AKIA5FTY7PXWKABUD36Y',
-        secretAccessKey: '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',
+        accessKeyId: process.env.AWS_ACCESS_KEY,
+        secretAccessKey: process.env.AWS_SECRET,
         region: 'us-east-2',
       }),
     });
